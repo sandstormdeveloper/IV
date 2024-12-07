@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+namespace Navegacion.State
 {
-    // Start is called before the first frame update
-    void Start()
+    public class MainMenu : Navegacion.AMenuState
     {
-        
-    }
+        public override void Enter()
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
+        }
+
+        public override void Exit() 
+        { 
         
+        }
+
+        public override void Update()
+        {
+
+        }
     }
 }
+

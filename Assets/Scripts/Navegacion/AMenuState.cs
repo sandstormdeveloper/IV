@@ -2,17 +2,24 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AMenuState : MonoBehaviour
+namespace Navegacion
 {
-    // Start is called before the first frame update
-    void Start()
+    public abstract class AMenuState : IState
     {
-        
-    }
+        public virtual void Enter ()
+        {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        }
+
+        public virtual void Exit ()
+        {
+
+        }
+
+        public virtual void Update()
+        {
+
+        }
     }
 }
+
