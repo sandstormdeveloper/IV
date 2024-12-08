@@ -7,6 +7,7 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
+    public float jumpSpeed;
     Vector2 moveInput;
     Rigidbody2D rb;
 
@@ -29,7 +30,10 @@ public class PlayerController : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-
+        if(value.isPressed)
+        {
+            rb.velocity += new Vector2(0f, jumpSpeed);
+        }
     }
 
     void Run()
