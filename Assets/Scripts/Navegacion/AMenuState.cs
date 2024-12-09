@@ -6,20 +6,10 @@ namespace Navegacion
 {
     public abstract class AMenuState : IState
     {
-        public virtual void Enter ()
-        {
+        public abstract void Enter();
+        public abstract void Handle();
+        public abstract void Exit();
 
-        }
-
-        public virtual void Exit ()
-        {
-
-        }
-
-        public virtual void Update()
-        {
-
-        }
     }
 }
 
