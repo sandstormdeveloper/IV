@@ -2,17 +2,43 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pause : MonoBehaviour
+namespace Navegacion.State
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Pause : Navegacion.AMenuState
     {
-        
-    }
+        private UIController uiController;
+        private GameObject pausePrefab;
+        private GameObject pauseInstance;
+        private bool isPaused = false;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public Pause(UIController uiControllerl, GameObject pausePrefab)
+        {
+            this.uiController = uiController;
+            this.pausePrefab = pausePrefab;
+        }
+
+        public override void Enter()
+        {
+            Debug.Log("Entrando al menu de Pausa");
+            uiController.loadScene("Pause");
+            Time.timeScale = 0f; //Se detiene el juego
+            ShowPause();
+        }
+
+        public override void Exit()
+        {
+            Debug.Log("Saliendo del Nivel");
+            Time.timeScale = 1f; //Se reanuda el juego
+            HidePause();
+        }
+
+        public override void FixedUpdate()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                uiController.setState()
+            }
+        }
     }
 }
+
