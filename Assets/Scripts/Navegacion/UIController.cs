@@ -26,20 +26,6 @@ namespace Navegacion
         {
             uiController = FindObjectOfType<UIController>();
         }
-        void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            { 
-                if (currentState is Pause)
-                {
-                    setState(new Level(this));
-                }
-                else
-                {
-                    setState(new Pause(this));
-                }
-            }
-        }
 
         public void loadScene(string scene)
         {

@@ -1340,8 +1340,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dee6a2d98aea36a428a311135f370aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  pauseInstance: {fileID: 0}
+  panel_pause: {fileID: 0}
   panel_integrantes: {fileID: 1872097746}
   panel_assets: {fileID: 2104183184}
+  canvas: {fileID: 0}
 --- !u!4 &1579204456
 Transform:
   m_ObjectHideFlags: 0
@@ -1843,7 +1846,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1579204455}
         m_TargetAssemblyTypeName: Navegacion.UIController, Assembly-CSharp
-        m_MethodName: OnExitButtonPressed
+        m_MethodName: OnExitCreditsButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
