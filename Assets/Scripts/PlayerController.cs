@@ -10,16 +10,18 @@ public class PlayerController : MonoBehaviour
     public float jumpSpeed;
     Vector2 moveInput;
     Rigidbody2D rb;
+    Animator anim;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
         Run();
-        FlipSprite();
+        UpdateSprite();
     }
 
     void OnMove(InputValue value)
@@ -42,13 +44,18 @@ public class PlayerController : MonoBehaviour
         rb.velocity = playerVelocity;
     }
 
-    void FlipSprite()
+    void UpdateSprite()
     {
-        bool playerHasHorizontalSpeed = Mathf.Abs(rb.velocity.x) > Mathf.Epsilon;
+        bool playerHasHorizontalSpeed = Mathf.Abs(rb.velocity.x) > 0.1f;
 
         if (playerHasHorizontalSpeed)
         {
             transform.localScale = new Vector2(Mathf.Sign(rb.velocity.x), 1f);
+            anim.SetBool("isRunning", true);
+        } 
+        else
+        {
+            anim.SetBool("isRunning", false);
         }
     }
 }
