@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 521835974}
   - component: {fileID: 521835973}
   - component: {fileID: 521835972}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: Tilemap
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4848,6 +4848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   jumpSpeed: 18
+  attackCooldown: 0
 --- !u!114 &2078918715
 MonoBehaviour:
   m_ObjectHideFlags: 0
