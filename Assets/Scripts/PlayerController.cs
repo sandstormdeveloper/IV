@@ -11,30 +11,48 @@ public class PlayerController : MonoBehaviour
     Vector2 moveInput;
     Rigidbody2D rb;
     Animator anim;
+    BoxCollider2D col;
+    public float attackCooldown;
+    float attackTimer = 0;
 
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        col = GetComponent<BoxCollider2D>();
     }
 
     void Update()
     {
         Run();
         UpdateSprite();
+        UpdateTimers();
     }
 
     void OnMove(InputValue value)
     {
         moveInput = value.Get<Vector2>();
-        Debug.Log(moveInput);
     }
 
     void OnJump(InputValue value)
     {
+        if (!col.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
+            return;
+        }
+
         if(value.isPressed)
         {
             rb.velocity += new Vector2(0f, jumpSpeed);
+        }
+    }
+
+    void OnFire(InputValue value)
+    {
+        if (value.isPressed && attackTimer <= 0)
+        {
+            anim.SetTrigger("attack");
+            attackTimer = attackCooldown;
         }
     }
 
@@ -56,6 +74,14 @@ public class PlayerController : MonoBehaviour
         else
         {
             anim.SetBool("isRunning", false);
+        }
+    }
+
+    void UpdateTimers()
+    {
+        if (attackTimer > 0)
+        {
+            attackTimer -= Time.deltaTime;
         }
     }
 }
