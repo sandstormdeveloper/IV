@@ -8,7 +8,6 @@ namespace Navegacion
     {
         void Enter();
         void Exit();
-        void FixedUpdate();
       
     }
 }

@@ -645,6 +645,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Resume_Button
       objectReference: {fileID: 0}
+    - target: {fileID: 9081859199171477979, guid: be9e93b32bd5d2a4a96f68310c75e3b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9081859199171477979, guid: be9e93b32bd5d2a4a96f68310c75e3b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9081859199171477979, guid: be9e93b32bd5d2a4a96f68310c75e3b1, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

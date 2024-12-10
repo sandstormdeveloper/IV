@@ -24,10 +24,8 @@ namespace Navegacion.State
             Debug.Log("Saliendo del Nivel");
         }
 
-        public override void FixedUpdate()
-        {
-
-        }
+      
+        
     }
 }
 

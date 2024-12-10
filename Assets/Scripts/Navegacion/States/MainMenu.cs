@@ -25,10 +25,6 @@ namespace Navegacion.State
             Debug.Log("Saliendo del Main Menu");
         }
 
-        public override void FixedUpdate()
-        {
-
-        }
 
 
     }

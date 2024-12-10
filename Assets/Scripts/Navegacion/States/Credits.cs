@@ -24,10 +24,7 @@ namespace Navegacion.State
             Debug.Log("Saliendo de los Créditos");
         }
 
-        public override void FixedUpdate()
-        {
-        }
-      
+     
     }
 }
 
