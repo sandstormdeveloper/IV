@@ -4059,7 +4059,7 @@ GameObject:
   - component: {fileID: 1921060285}
   - component: {fileID: 1921060284}
   m_Layer: 5
-  m_Name: Button
+  m_Name: Pause_Button
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

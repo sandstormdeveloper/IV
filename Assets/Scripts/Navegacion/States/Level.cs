@@ -2,17 +2,32 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Level : MonoBehaviour
+namespace Navegacion.State
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Level : Navegacion.AMenuState
     {
-        
-    }
+        private UIController uiController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public Level(UIController uiController)
+        {
+            this.uiController = uiController;
+        }
+
+        public override void Enter()
+        {
+            Debug.Log("Entrando al Nivel");
+            uiController.loadScene("Level");
+        }
+
+        public override void Exit()
+        {
+            Debug.Log("Saliendo del Nivel");
+        }
+
+        public override void FixedUpdate()
+        {
+
+        }
     }
 }
+

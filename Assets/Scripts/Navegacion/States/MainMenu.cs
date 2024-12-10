@@ -16,18 +16,21 @@ namespace Navegacion.State
         
         public override void Enter()
         {
-            UnityEngine.SceneManagement.SceneManager.LoadScene("MainMenu");
+            Debug.Log("Entrando al Main Menu");
+            uiController.loadScene("MainMenu");
         }
-        public override void Handle()
+
+        public override void Exit() 
+        {
+            Debug.Log("Saliendo del Main Menu");
+        }
+
+        public override void FixedUpdate()
         {
 
         }
 
-        public override void Exit() 
-        { 
-            
-        }
-        
+
     }
 }
 

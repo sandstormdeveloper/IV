@@ -7,8 +7,8 @@ namespace Navegacion
     public abstract class AMenuState : IState
     {
         public abstract void Enter();
-        public abstract void Handle();
         public abstract void Exit();
+        public abstract void FixedUpdate();
 
     }
 }

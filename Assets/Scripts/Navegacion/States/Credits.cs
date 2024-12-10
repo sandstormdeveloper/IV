@@ -2,17 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Credits : MonoBehaviour
+namespace Navegacion.State
 {
-    // Start is called before the first frame update
-    void Start()
+    public class Credits : Navegacion.AMenuState
     {
-        
-    }
+        private UIController uiController;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        public Credits(UIController uiController)
+        {
+            this.uiController = uiController;
+        }
+
+        public override void Enter()
+        {
+            Debug.Log("Entrando a los Créditos");
+            uiController.loadScene("Credits");
+        }
+
+        public override void Exit()
+        {
+            Debug.Log("Saliendo de los Créditos");
+        }
+
+        public override void FixedUpdate()
+        {
+        }
+      
     }
 }
+
+

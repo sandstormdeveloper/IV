@@ -34,10 +34,14 @@ namespace Navegacion.State
 
         public override void FixedUpdate()
         {
+<<<<<<< Updated upstream
             if (Input.GetKeyDown(KeyCode.Escape))
             {
                 uiController.setState()
             }
+=======
+            
+>>>>>>> Stashed changes
         }
     }
 }

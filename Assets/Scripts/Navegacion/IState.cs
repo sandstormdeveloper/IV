@@ -7,8 +7,8 @@ namespace Navegacion
     public interface IState
     {
         void Enter();
-        void Handle();
         void Exit();
+        void FixedUpdate();
       
     }
 }
