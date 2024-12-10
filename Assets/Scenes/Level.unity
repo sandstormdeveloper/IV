@@ -4848,7 +4848,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 8
   jumpSpeed: 18
-  attackCooldown: 0
+  attackCooldown: 1
 --- !u!114 &2078918715
 MonoBehaviour:
   m_ObjectHideFlags: 0
