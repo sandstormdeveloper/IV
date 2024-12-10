@@ -22,26 +22,23 @@ namespace Navegacion.State
             Debug.Log("Entrando al menu de Pausa");
             uiController.loadScene("Pause");
             Time.timeScale = 0f; //Se detiene el juego
-            ShowPause();
+            
+            pauseInstance = Object.Instantiate(pausePrefab);
         }
 
         public override void Exit()
         {
             Debug.Log("Saliendo del Nivel");
             Time.timeScale = 1f; //Se reanuda el juego
-            HidePause();
+            //HidePause();
         }
 
         public override void FixedUpdate()
         {
-<<<<<<< Updated upstream
             if (Input.GetKeyDown(KeyCode.Escape))
             {
-                uiController.setState()
+               // uiController.setState()
             }
-=======
-            
->>>>>>> Stashed changes
         }
     }
 }
