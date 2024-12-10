@@ -10,6 +10,8 @@ namespace Navegacion
 {
     public class UIController : MonoBehaviour
     {
+        //VARIABLES 
+
         private IState currentState;
         private UIController uiController;
 
@@ -27,31 +29,34 @@ namespace Navegacion
             uiController = FindObjectOfType<UIController>();
         }
 
+        //Función para cargar las escenes
         public void loadScene(string scene)
         {
             Debug.Log("Cargando escena de " + scene);
             SceneManager.LoadScene(scene);
         }
 
+        //Función para devolver el estado actual
         public IState getState()
         {
             return currentState;
         }
 
+        //Función para actualizar el estado
         public void setState(IState state)
         {
             if (currentState != null)
             {
-                currentState.Exit();
+                currentState.Exit(); //Sale del estado actual
             }
 
-            currentState = state;
-            currentState.Enter();
+            currentState = state; //Actualiza el estado nuevo
+            currentState.Enter(); //Entra en el estado nuevo
         }
 
-        
+        /// BOTONES 
 
-        //Botones Main Menu
+        //Botones Menu Principal
         public void OnStartButtonPressed()
         {
             uiController.setState(new Level(uiController));
@@ -65,10 +70,10 @@ namespace Navegacion
         public void OnQuitButtonPressed()
         {
             Debug.Log("Saliendo del juego");
-            Application.Quit();
+            Application.Quit(); //Salir del juego
         }
 
-        //Botones Créditos
+        //Botones Menu Créditos
         public void OnExitCreditsButtonPressed()
         {
             uiController.setState(new MainMenu(uiController));
@@ -87,7 +92,7 @@ namespace Navegacion
 
         }
 
-        //Botones Pausa
+        //Botones Menu Pausa
         public void OnPauseButtonPressed()
         {
             uiController.setState(new Pause(uiController));
