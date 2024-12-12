@@ -9,6 +9,6 @@ public class CoinUI : MonoBehaviour, IGoldObserver
 
     public void OnCoinCollected(int totalCoins)
     {
-        coinText.text = "Monedas: " + totalCoins; // Actualiza la interfaz con el nº de monedas
+        coinText.text = "" + totalCoins; // Actualiza la interfaz con el nº de monedas
     }
 }
