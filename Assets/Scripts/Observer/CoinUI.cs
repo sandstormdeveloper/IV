@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
-public class CoinUI : MonoBehaviour
+public class CoinUI : MonoBehaviour, IGoldObserver
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [SerializeField] private TextMeshProUGUI coinText;
 
-    // Update is called once per frame
-    void Update()
+    public void OnCoinCollected(int totalCoins)
     {
-        
+        coinText.text = "Monedas: " + totalCoins; // Actualiza la interfaz
     }
 }
