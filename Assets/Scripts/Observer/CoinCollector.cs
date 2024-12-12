@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//Parte del personaje
 public class CoinCollector : MonoBehaviour
 {
     private List<IGoldObserver> observers = new List<IGoldObserver>(); // Lista de observadores
     private int totalCoins = 0;
 
-    // Método para agregar un observador
+    // Agregar un observador
     public void AddObserver(IGoldObserver observer)
     {
         if (!observers.Contains(observer))
@@ -16,7 +16,7 @@ public class CoinCollector : MonoBehaviour
         }
     }
 
-    // Método para remover un observador
+    // Eliminar un observador
     public void RemoveObserver(IGoldObserver observer)
     {
         if (observers.Contains(observer))
@@ -25,7 +25,7 @@ public class CoinCollector : MonoBehaviour
         }
     }
 
-    // Método para notificar a los observadores
+    // Notificar a los observadores
     private void NotifyObservers()
     {
         foreach (var observer in observers)
