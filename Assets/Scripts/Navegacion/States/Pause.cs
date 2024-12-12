@@ -8,7 +8,6 @@ namespace Navegacion.State
     {
         private UIController uiController;
 
-        private GameObject pauseInstance;
 
         public Pause(UIController uiController)
         {

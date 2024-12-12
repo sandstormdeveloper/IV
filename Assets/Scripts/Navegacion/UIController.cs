@@ -11,9 +11,7 @@ namespace Navegacion
     public class UIController : MonoBehaviour
     {
         //VARIABLES 
-
         private IState currentState;
-        private UIController uiController;
 
         public GameObject pauseInstance;
         public GameObject panel_pause;
@@ -23,11 +21,6 @@ namespace Navegacion
 
         public Transform canvas;
 
-
-        void Start()
-        {
-            uiController = FindObjectOfType<UIController>();
-        }
 
         //Función para cargar las escenes
         public void loadScene(string scene)
@@ -57,35 +50,39 @@ namespace Navegacion
         /// BOTONES 
 
         //Botones Menu Principal
-        public void OnStartButtonPressed()
+        public void OnStartButtonPressed() //Empezar el juego
         {
-            uiController.setState(new Level(uiController));
+            setState(new Level(this));
         }
 
-        public void OnCreditsButtonPressed()
+        public void OnCreditsButtonPressed() //Ir a la escena de creditos
         {
-            uiController.setState(new Credits(uiController));
+            setState(new Credits(this));
+        }
+        public void OnOptionsButtonPressed() //Ir a la escena de opciones
+        {
+            setState(new Options(this));
         }
 
-        public void OnQuitButtonPressed()
+        public void OnQuitButtonPressed() //Cerrar el juego
         {
             Debug.Log("Saliendo del juego");
             Application.Quit(); //Salir del juego
         }
 
         //Botones Menu Créditos
-        public void OnExitCreditsButtonPressed()
+        public void OnExitCreditsButtonPressed() //Volver al menu principal desde el menu de creditos
         {
-            uiController.setState(new MainMenu(uiController));
+            setState(new MainMenu(this));
         }
 
-        public void ShowPanelIntegrantes()
+        public void ShowPanelIntegrantes() //Mostrar panel de integrantes y tareas
         {
             panel_assets.SetActive(false); //Ocultarlo
             panel_integrantes.SetActive(true); //Mostrarlo
         }
 
-        public void ShowPanelAssets()
+        public void ShowPanelAssets() //Mostrar panel de assets
         {
             panel_integrantes.SetActive(false); //Ocultarlo
             panel_assets.SetActive(true); //Mostrarlo
@@ -93,25 +90,34 @@ namespace Navegacion
         }
 
         //Botones Menu Pausa
-        public void OnPauseButtonPressed()
+        public void OnPauseButtonPressed() //Pausar el juego y mostrar el menu de pausa
         {
-            uiController.setState(new Pause(uiController));
+            setState(new Pause(this));
         }
-        public void OnResumeButtonPressed()
+        public void OnResumeButtonPressed() //Reanudar el nivel
         {
-            uiController.setState(new Level(this));
+            pauseInstance.SetActive(false); //Se oculta el menu de pausa
+            panel_pause.SetActive(false); //Se oculta el panel 
+            Time.timeScale = 1f;
         }
-        public void OnRestartButtonPressed()
+        public void OnRestartButtonPressed() //Reiniciar el nivel
         {
-            uiController.setState(new Level(uiController));
+            setState(new Level(this));
         }
-        public void OnQuitLevelButtonPressed()
+        public void OnQuitLevelButtonPressed() //Voler al menu principal desde el nivel
         {
-            uiController.setState(new MainMenu(uiController));
+            setState(new MainMenu(this));
+        }
+
+        //Botones Menu Opciones       
+        public void OnExitOptionsButtonPressed() //Volver al menu principal desde el menu de opciones
+        {
+            setState(new MainMenu(this));
+
         }
 
     }
 
-    
+
 
 }
