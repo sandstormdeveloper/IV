@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,10 +100,10 @@ TextureImporter:
       name: Orc-Death_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 40
-        width: 23
-        height: 18
+        x: 44
+        y: 43
+        width: 22
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7146aacdbc0f9bd45ab6ddd2d362c1da
-      internalID: 152172860
+      spriteID: 2ed87d7d066368f4990e29612f7ffddd
+      internalID: -1734456259
       vertices: []
       indices: 
       edges: []
@@ -122,9 +122,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 140
-        y: 40
+        y: 45
         width: 26
-        height: 19
+        height: 14
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f69a73ea4a3b06045a537614072ebc90
-      internalID: -1542472298
+      spriteID: 54e29d2d71ab05842bd6633bbb791016
+      internalID: 348631303
       vertices: []
       indices: 
       edges: []
@@ -143,9 +143,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 237
-        y: 39
+        y: 44
         width: 28
-        height: 22
+        height: 17
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1634bb86eab95e74d824a49af9eb0adf
-      internalID: -167260547
+      spriteID: 0edaf1e2477c6e143a72232ca8dd0829
+      internalID: -1671769487
       vertices: []
       indices: 
       edges: []
@@ -164,9 +164,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 336
-        y: 40
+        y: 44
         width: 30
-        height: 14
+        height: 10
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b1083cd1278729540a59d3af6cb50de2
-      internalID: -1158304109
+      spriteID: a51cd1460bc3e7c49ace8be7829b0fb5
+      internalID: -613005217
       vertices: []
       indices: 
       edges: []
@@ -191,13 +191,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Orc-Death_0: 152172860
-      Orc-Death_1: -1542472298
-      Orc-Death_2: -167260547
-      Orc-Death_3: 999977314
-      Orc-Death_4: -1158304109
-      Orc-Death_5: 278446747
-      Orc-Death_6: 280892845
+      Orc-Death_0: -1734456259
+      Orc-Death_1: 348631303
+      Orc-Death_2: -1671769487
+      Orc-Death_3: 287300773
+      Orc-Death_4: -613005217
+      Orc-Death_5: -53721386
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -100,10 +100,10 @@ TextureImporter:
       name: Orc-Idle_0
       rect:
         serializedVersion: 2
-        x: 43
-        y: 40
-        width: 23
-        height: 18
+        x: 44
+        y: 43
+        width: 22
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 27a4b93638337cb4eaaf57409559a32a
-      internalID: 1986883846
+      spriteID: 322106e229453fb488a089c6179fc0ef
+      internalID: -485106188
       vertices: []
       indices: 
       edges: []
@@ -121,10 +121,10 @@ TextureImporter:
       name: Orc-Idle_1
       rect:
         serializedVersion: 2
-        x: 143
-        y: 40
-        width: 23
-        height: 18
+        x: 144
+        y: 43
+        width: 22
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f642d2e1f5d52964b87c5febddf0193a
-      internalID: -1950886586
+      spriteID: 1023f0815b4f3554ea56dd11f4bb7577
+      internalID: -514438735
       vertices: []
       indices: 
       edges: []
@@ -142,10 +142,10 @@ TextureImporter:
       name: Orc-Idle_2
       rect:
         serializedVersion: 2
-        x: 243
-        y: 40
-        width: 23
-        height: 19
+        x: 244
+        y: 43
+        width: 22
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5ac3fd9b6fb38bd4f9a0ecca8d8641f0
-      internalID: 893320572
+      spriteID: 57a09075bf775aa47a7bcec1fcf84cd6
+      internalID: -192535762
       vertices: []
       indices: 
       edges: []
@@ -163,10 +163,10 @@ TextureImporter:
       name: Orc-Idle_3
       rect:
         serializedVersion: 2
-        x: 343
-        y: 40
-        width: 23
-        height: 19
+        x: 344
+        y: 43
+        width: 22
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88d99732e85c44045a49364a384e7bc3
-      internalID: 1935012620
+      spriteID: c1c5cf8f7faab7a438451549bca8fec4
+      internalID: 997541095
       vertices: []
       indices: 
       edges: []
@@ -184,10 +184,10 @@ TextureImporter:
       name: Orc-Idle_4
       rect:
         serializedVersion: 2
-        x: 443
-        y: 40
-        width: 23
-        height: 18
+        x: 444
+        y: 43
+        width: 22
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,8 +195,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1c7b710c98eab9b448396a42da8810be
-      internalID: 692705565
+      spriteID: bb3b8a51342e9184bb63e136385fd26d
+      internalID: -1327658552
       vertices: []
       indices: 
       edges: []
@@ -205,10 +205,10 @@ TextureImporter:
       name: Orc-Idle_5
       rect:
         serializedVersion: 2
-        x: 543
-        y: 40
-        width: 23
-        height: 18
+        x: 544
+        y: 43
+        width: 22
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,8 +216,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 81ab320715023004ebea9fb2edc7de6c
-      internalID: 34172977
+      spriteID: 08bb54b950e36a64886694fdb573f6bc
+      internalID: 481432046
       vertices: []
       indices: 
       edges: []
@@ -233,12 +233,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Orc-Idle_0: 1986883846
-      Orc-Idle_1: -1950886586
-      Orc-Idle_2: 893320572
-      Orc-Idle_3: 1935012620
-      Orc-Idle_4: 692705565
-      Orc-Idle_5: 34172977
+      Orc-Idle_0: -485106188
+      Orc-Idle_1: -514438735
+      Orc-Idle_2: -192535762
+      Orc-Idle_3: 997541095
+      Orc-Idle_4: -1327658552
+      Orc-Idle_5: 481432046
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0812a049f9cfb8f47b1cad6543ba919c
+guid: 5e917f97d187c4845a32f6d9c5967d4f
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -97,13 +97,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Mushroom-Stun_30
+      name: Mushroom-Die_0
       rect:
         serializedVersion: 2
         x: 25
         y: 0
-        width: 33
-        height: 42
+        width: 30
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,20 +111,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 00ae9a325bb42cc4995c199511dd856b
-      internalID: 1857936153
+      spriteID: e72cde27b166dd440985373d9304e3fa
+      internalID: -521623284
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Stun_31
+      name: Mushroom-Die_1
       rect:
         serializedVersion: 2
         x: 107
         y: 0
-        width: 33
-        height: 42
+        width: 30
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,20 +132,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 722a6361fb154a44d90414f973f66632
-      internalID: -1097798686
+      spriteID: 42a4e07e73a4a8e439929a7b7b9c7184
+      internalID: -1821777357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Stun_32
+      name: Mushroom-Die_2
       rect:
         serializedVersion: 2
-        x: 189
+        x: 193
         y: 0
-        width: 32
-        height: 43
+        width: 28
+        height: 37
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,20 +153,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 174a8388eb2efce4b9f4d4f31f9a6313
-      internalID: -850491523
+      spriteID: 30785feb76fef7a479a3f19dee58ad3c
+      internalID: -671070203
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Stun_33
+      name: Mushroom-Die_3
       rect:
         serializedVersion: 2
-        x: 271
+        x: 282
+        y: 0
+        width: 29
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd739ee27c8e78e408e8b0391ca624ca
+      internalID: -1071894942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mushroom-Die_4
+      rect:
+        serializedVersion: 2
+        x: 351
         y: 0
         width: 30
-        height: 44
+        height: 34
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,20 +195,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: fdc5d89a7bfa07e419833da323f8ddb4
-      internalID: 1623392371
+      spriteID: 11cff7c838b188f4a8b834df28857c02
+      internalID: -2116323618
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Stun_34
+      name: Mushroom-Die_5
       rect:
         serializedVersion: 2
-        x: 347
+        x: 427
         y: 0
         width: 30
-        height: 43
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -195,20 +216,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2ebc077366613a24f9930d382b7e0e90
-      internalID: -1048868763
+      spriteID: 72e5e789fa4bfc546a9426019d44ad54
+      internalID: -961552861
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Stun_35
+      name: Mushroom-Die_6
       rect:
         serializedVersion: 2
-        x: 424
+        x: 500
         y: 0
-        width: 30
-        height: 43
+        width: 28
+        height: 27
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,146 +237,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 79adf837bb8bfc141b6d9774eae0bff4
-      internalID: -1788112061
+      spriteID: caa47fc964e01bf4895331a24d35961b
+      internalID: -265102602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Stun_36
+      name: Mushroom-Die_7
       rect:
         serializedVersion: 2
-        x: 503
-        y: 0
-        width: 35
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 95f30b6ee2e818848a301de7a64912d5
-      internalID: -521500495
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mushroom-Stun_37
-      rect:
-        serializedVersion: 2
-        x: 583
-        y: 0
-        width: 33
-        height: 42
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 83cb236ae969af448ad9f66e65b9eaab
-      internalID: 549501112
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mushroom-Stun_38
-      rect:
-        serializedVersion: 2
-        x: 667
-        y: 0
-        width: 30
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 256e27aa189ef0c42adc2ac7280b70a5
-      internalID: -1793918421
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mushroom-Stun_39
-      rect:
-        serializedVersion: 2
-        x: 750
-        y: 0
-        width: 30
-        height: 44
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9c8469ccd20d6f344ad8a199d7f5a957
-      internalID: -2046513903
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mushroom-Stun_40
-      rect:
-        serializedVersion: 2
-        x: 831
-        y: 0
-        width: 30
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7d45c095753d824bad8fc57971534b7
-      internalID: -1817042222
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mushroom-Stun_41
-      rect:
-        serializedVersion: 2
-        x: 910
-        y: 0
-        width: 31
-        height: 43
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3616c54eb00db8a4997cd364c2251850
-      internalID: 912403565
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Mushroom-Stun_42
-      rect:
-        serializedVersion: 2
-        x: 985
+        x: 570
         y: 0
         width: 36
-        height: 42
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -363,20 +258,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 40849ac4fba9a94499b663185fca8235
-      internalID: 86859499
+      spriteID: 82cfb614ce8860949885b1bdfff193b7
+      internalID: -128914426
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Stun_43
+      name: Mushroom-Die_8
       rect:
         serializedVersion: 2
-        x: 1067
+        x: 648
         y: 0
-        width: 30
-        height: 42
+        width: 36
+        height: 13
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -384,20 +279,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ffa5cc7ecced8224aac6151ac63e1e64
-      internalID: 1439176489
+      spriteID: b66c855f6c4a9b948acd39e991cb11ec
+      internalID: -263479168
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Stun_44
+      name: Mushroom-Die_9
       rect:
         serializedVersion: 2
-        x: 1144
+        x: 727
         y: 0
-        width: 30
-        height: 43
+        width: 34
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -405,20 +300,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: db0e430ecc904344391b97bc539c8f7e
-      internalID: -1479450897
+      spriteID: 1f162c36d544db240802602dc47c007d
+      internalID: -1981647060
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Stun_45
+      name: Mushroom-Die_10
       rect:
         serializedVersion: 2
-        x: 1223
+        x: 806
         y: 0
-        width: 30
-        height: 44
+        width: 34
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -426,20 +321,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87a0eb66102e9fa4fac53dee32416457
-      internalID: -621477823
+      spriteID: 597dfd4c205e76e4380cf62d101ab38f
+      internalID: -1015667867
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Stun_46
+      name: Mushroom-Die_11
       rect:
         serializedVersion: 2
-        x: 1303
+        x: 886
         y: 0
-        width: 30
-        height: 43
+        width: 34
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -447,20 +342,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 8decabfa3680e1f40a8245036ecc9e0a
-      internalID: 1309430677
+      spriteID: bf3df0073c1d39144bcacdbd115cae72
+      internalID: 179815433
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Mushroom-Stun_47
+      name: Mushroom-Die_12
       rect:
         serializedVersion: 2
-        x: 1383
+        x: 966
         y: 0
-        width: 30
-        height: 43
+        width: 34
+        height: 16
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -468,8 +363,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: de34211f667e89d439efb1a1193f0e65
-      internalID: 903828705
+      spriteID: 91341e29b94341b44a0f97d4c87b8375
+      internalID: -1114811786
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mushroom-Die_13
+      rect:
+        serializedVersion: 2
+        x: 1046
+        y: 0
+        width: 34
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 644ba00550c021b46a835780be202b13
+      internalID: 1331395710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Mushroom-Die_14
+      rect:
+        serializedVersion: 2
+        x: 1126
+        y: 0
+        width: 34
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea18f96ec6870584e8dba5c1d8426f83
+      internalID: 366060865
       vertices: []
       indices: 
       edges: []
@@ -485,54 +422,21 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Mushroom-Stun_0: -800410862
-      Mushroom-Stun_1: -1852376725
-      Mushroom-Stun_10: -1618199487
-      Mushroom-Stun_11: -1876099231
-      Mushroom-Stun_12: 596827865
-      Mushroom-Stun_13: -1053922505
-      Mushroom-Stun_14: 422856658
-      Mushroom-Stun_15: -2115017546
-      Mushroom-Stun_16: 1863131069
-      Mushroom-Stun_17: 1079217648
-      Mushroom-Stun_18: 472427287
-      Mushroom-Stun_19: 637296384
-      Mushroom-Stun_2: 1292457351
-      Mushroom-Stun_20: 1338254173
-      Mushroom-Stun_21: 1708383370
-      Mushroom-Stun_22: 2095161807
-      Mushroom-Stun_23: -1334234123
-      Mushroom-Stun_24: -558856491
-      Mushroom-Stun_25: -1491276954
-      Mushroom-Stun_26: -1790358935
-      Mushroom-Stun_27: 2016250272
-      Mushroom-Stun_28: 572068122
-      Mushroom-Stun_29: -286146928
-      Mushroom-Stun_3: -1666549620
-      Mushroom-Stun_30: 1857936153
-      Mushroom-Stun_31: -1097798686
-      Mushroom-Stun_32: -850491523
-      Mushroom-Stun_33: 1623392371
-      Mushroom-Stun_34: -1048868763
-      Mushroom-Stun_35: -1788112061
-      Mushroom-Stun_36: -521500495
-      Mushroom-Stun_37: 549501112
-      Mushroom-Stun_38: -1793918421
-      Mushroom-Stun_39: -2046513903
-      Mushroom-Stun_4: -501702522
-      Mushroom-Stun_40: -1817042222
-      Mushroom-Stun_41: 912403565
-      Mushroom-Stun_42: 86859499
-      Mushroom-Stun_43: 1439176489
-      Mushroom-Stun_44: -1479450897
-      Mushroom-Stun_45: -621477823
-      Mushroom-Stun_46: 1309430677
-      Mushroom-Stun_47: 903828705
-      Mushroom-Stun_5: -1779221674
-      Mushroom-Stun_6: -591818671
-      Mushroom-Stun_7: -1913138056
-      Mushroom-Stun_8: -1069113502
-      Mushroom-Stun_9: -553834864
+      Mushroom-Die_0: -521623284
+      Mushroom-Die_1: -1821777357
+      Mushroom-Die_10: -1015667867
+      Mushroom-Die_11: 179815433
+      Mushroom-Die_12: -1114811786
+      Mushroom-Die_13: 1331395710
+      Mushroom-Die_14: 366060865
+      Mushroom-Die_2: -671070203
+      Mushroom-Die_3: -1071894942
+      Mushroom-Die_4: -2116323618
+      Mushroom-Die_5: -961552861
+      Mushroom-Die_6: -265102602
+      Mushroom-Die_7: -128914426
+      Mushroom-Die_8: -263479168
+      Mushroom-Die_9: -1981647060
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

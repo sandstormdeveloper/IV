@@ -34,7 +34,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -101,9 +101,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 42
-        y: 40
+        y: 43
         width: 23
-        height: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -111,8 +111,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 11032c68939bc1741b6c8f3ca23738b6
-      internalID: -1861971765
+      spriteID: 3f05bf317a3c23641a6068a80a6f2c38
+      internalID: -1166198019
       vertices: []
       indices: 
       edges: []
@@ -122,9 +122,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 142
-        y: 40
+        y: 43
         width: 23
-        height: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -132,8 +132,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1f799011986e3e84ea18095d3b64cc30
-      internalID: 326509617
+      spriteID: a5ca0ea42c84262448fbefb5190783d9
+      internalID: -109931243
       vertices: []
       indices: 
       edges: []
@@ -143,9 +143,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 242
-        y: 40
+        y: 43
         width: 23
-        height: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -153,8 +153,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f83dab2d24cd6eb4fb478e283220708c
-      internalID: 1900595753
+      spriteID: 4f155683abfd8eb4e87e5857c7ae28ee
+      internalID: -1271915692
       vertices: []
       indices: 
       edges: []
@@ -164,9 +164,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 342
-        y: 40
+        y: 43
         width: 23
-        height: 18
+        height: 15
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -174,8 +174,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d8500ff5f8182494a87f5ba776830b36
-      internalID: -1949146509
+      spriteID: f3e02754506ed144facf43752db9625d
+      internalID: -1683745777
       vertices: []
       indices: 
       edges: []
@@ -191,10 +191,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Orc-Hurt_0: -1861971765
-      Orc-Hurt_1: 326509617
-      Orc-Hurt_2: 1900595753
-      Orc-Hurt_3: -1949146509
+      Orc-Hurt_0: -1166198019
+      Orc-Hurt_1: -109931243
+      Orc-Hurt_2: -1271915692
+      Orc-Hurt_3: -1683745777
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
