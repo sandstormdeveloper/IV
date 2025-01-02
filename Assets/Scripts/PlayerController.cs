@@ -8,13 +8,17 @@ public class PlayerController : MonoBehaviour
 {
     public float moveSpeed;
     public float jumpSpeed;
-    Vector2 moveInput;
-    Rigidbody2D rb;
-    Animator anim;
-    BoxCollider2D col;
     public float attackCooldown;
-    float attackTimer = 0;
-    bool isAttacking = false;
+
+    private Vector2 moveInput;
+    private Rigidbody2D rb;
+    private Animator anim;
+    private BoxCollider2D col;
+
+    private float attackTimer = 0;
+    private bool isAttacking = false;
+
+    private ICommand currentCommand;
 
     void Awake()
     {
@@ -25,9 +29,9 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        UpdateTimers();
         Run();
         UpdateSprite();
-        UpdateTimers();
     }
 
     void OnMove(InputValue value)
@@ -37,19 +41,10 @@ public class PlayerController : MonoBehaviour
 
     void OnJump(InputValue value)
     {
-        if (!col.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        if (value.isPressed && IsGrounded())
         {
-            return;
-        }
-
-        if (!IsGrounded())
-        {
-            return;
-        }
-
-        if (value.isPressed)
-        {
-            rb.velocity += new Vector2(0f, jumpSpeed);
+            currentCommand = new JumpCommand(rb, jumpSpeed);
+            currentCommand.Execute();
         }
     }
 
@@ -57,45 +52,43 @@ public class PlayerController : MonoBehaviour
     {
         if (value.isPressed && attackTimer <= 0)
         {
-            anim.SetTrigger("attack");
-            attackTimer = attackCooldown;
+            currentCommand = new AttackCommand(anim, attackCooldown, cooldown => attackTimer = cooldown);
+            currentCommand.Execute();
             isAttacking = true;
         }
     }
 
-    void Run()
+    private void Run()
     {
-        if (isAttacking)
+        if (!isAttacking)
         {
-            rb.velocity = new Vector2(0 * moveSpeed, rb.velocity.y);
-            return;
+            currentCommand = new MoveCommand(rb, moveSpeed, moveInput);
+            currentCommand.Execute();
         }
-        Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
-        rb.velocity = playerVelocity;
+        else
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
     }
 
-    void UpdateSprite()
+    private void UpdateSprite()
     {
         bool playerHasHorizontalSpeed = Mathf.Abs(rb.velocity.x) > 0.1f;
+        anim.SetBool("isRunning", playerHasHorizontalSpeed);
 
         if (playerHasHorizontalSpeed)
         {
             transform.localScale = new Vector2(Mathf.Sign(rb.velocity.x), 1f);
-            anim.SetBool("isRunning", true);
-        } 
-        else
-        {
-            anim.SetBool("isRunning", false);
         }
     }
 
-    void UpdateTimers()
+    private void UpdateTimers()
     {
         if (attackTimer > 0)
         {
             attackTimer -= Time.deltaTime;
 
-            if (attackTimer < attackCooldown - 0.5)
+            if (attackTimer <= 0.5f)
             {
                 isAttacking = false;
             }
@@ -116,7 +109,6 @@ public class PlayerController : MonoBehaviour
         }
         return false;
     }
-
-
 }
+
 
