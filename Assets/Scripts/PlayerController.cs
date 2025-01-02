@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     BoxCollider2D col;
     public float attackCooldown;
     float attackTimer = 0;
+    bool isAttacking = false;
 
     void Awake()
     {
@@ -41,7 +42,12 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if(value.isPressed)
+        if (!IsGrounded())
+        {
+            return;
+        }
+
+        if (value.isPressed)
         {
             rb.velocity += new Vector2(0f, jumpSpeed);
         }
@@ -53,11 +59,17 @@ public class PlayerController : MonoBehaviour
         {
             anim.SetTrigger("attack");
             attackTimer = attackCooldown;
+            isAttacking = true;
         }
     }
 
     void Run()
     {
+        if (isAttacking)
+        {
+            rb.velocity = new Vector2(0 * moveSpeed, rb.velocity.y);
+            return;
+        }
         Vector2 playerVelocity = new Vector2(moveInput.x * moveSpeed, rb.velocity.y);
         rb.velocity = playerVelocity;
     }
@@ -82,8 +94,29 @@ public class PlayerController : MonoBehaviour
         if (attackTimer > 0)
         {
             attackTimer -= Time.deltaTime;
+
+            if (attackTimer < attackCooldown - 0.5)
+            {
+                isAttacking = false;
+            }
         }
     }
+
+    private bool IsGrounded()
+    {
+        ContactPoint2D[] contacts = new ContactPoint2D[10];
+        int contactCount = col.GetContacts(contacts);
+
+        for (int i = 0; i < contactCount; i++)
+        {
+            if (contacts[i].normal == Vector2.up)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
 
 }
 
