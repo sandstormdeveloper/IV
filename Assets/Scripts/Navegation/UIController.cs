@@ -14,7 +14,9 @@ namespace Navegacion
         private IState currentState;
 
         public GameObject pauseInstance;
-        public GameObject panel_pause;
+        public GameObject panel_background;
+
+        public GameObject dieInstance;
 
         public GameObject panel_integrantes;
         public GameObject panel_assets;
@@ -97,7 +99,7 @@ namespace Navegacion
         public void OnResumeButtonPressed() //Reanudar el nivel
         {
             pauseInstance.SetActive(false); //Se oculta el menu de pausa
-            panel_pause.SetActive(false); //Se oculta el panel 
+            panel_background.SetActive(false); //Se oculta el panel 
             Time.timeScale = 1f;
         }
         public void OnRestartButtonPressed() //Reiniciar el nivel
@@ -105,6 +107,16 @@ namespace Navegacion
             setState(new Level(this));
         }
         public void OnQuitLevelButtonPressed() //Voler al menu principal desde el nivel
+        {
+            setState(new MainMenu(this));
+        }
+
+        //Botones Menu Muerte jugador
+        public void OnDieRestartButtonPressed() //Reiniciar el nivel
+        {
+            setState(new Level(this));
+        }
+        public void OnDieQuitLevelButtonPressed() //Voler al menu principal desde el nivel
         {
             setState(new MainMenu(this));
         }

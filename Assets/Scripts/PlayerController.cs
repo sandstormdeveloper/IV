@@ -1,8 +1,11 @@
+using Navegacion;
+using Navegacion.State;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
@@ -25,6 +28,7 @@ public class PlayerController : MonoBehaviour
     private int currentHealth;
 
     private ICommand currentCommand;
+    public UIController uiController;
 
     void Awake()
     {
@@ -33,11 +37,14 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<BoxCollider2D>();
     }
 
-    private void Start()
+    void Start()
     {
         currentHealth = maxHealth;
-        playerHealthSlider.maxValue = maxHealth;
-        playerHealthSlider.value = currentHealth;
+        if (playerHealthSlider != null)
+        {
+            playerHealthSlider.maxValue = maxHealth;
+            playerHealthSlider.value = currentHealth;
+        }
     }
 
     void Update()
@@ -45,6 +52,7 @@ public class PlayerController : MonoBehaviour
         UpdateTimers();
         Run();
         UpdateSprite();
+        playerHealthSlider.value = currentHealth;
     }
 
     void OnMove(InputValue value)
@@ -126,13 +134,16 @@ public class PlayerController : MonoBehaviour
     public void Damage(int damage)
     {
         currentHealth -= damage;
-        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
-        playerHealthSlider.value = currentHealth;
+        
+        if (playerHealthSlider != null)
+        {
+            playerHealthSlider.value = currentHealth;
+        }
 
         if (currentHealth <= 0)
         {
             Die();
-        }
+        }   
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -145,8 +156,12 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("The player died");
+        if (uiController != null)
+        {
+            uiController.setState(new Die(uiController));
+        }
 
+        Debug.Log("The player died");
     }
 
 }
