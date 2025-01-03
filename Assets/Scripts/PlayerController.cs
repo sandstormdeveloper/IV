@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour
 {
@@ -18,6 +19,11 @@ public class PlayerController : MonoBehaviour
     private float attackTimer = 0;
     private bool isAttacking = false;
 
+    //Variables vida jugador
+    public Slider playerHealthSlider;
+    public int maxHealth = 50;
+    private int currentHealth;
+
     private ICommand currentCommand;
 
     void Awake()
@@ -25,6 +31,13 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         col = GetComponent<BoxCollider2D>();
+    }
+
+    private void Start()
+    {
+        currentHealth = maxHealth;
+        playerHealthSlider.maxValue = maxHealth;
+        playerHealthSlider.value = currentHealth;
     }
 
     void Update()
@@ -109,6 +122,33 @@ public class PlayerController : MonoBehaviour
         }
         return false;
     }
+
+    public void Damage(int damage)
+    {
+        currentHealth -= damage;
+        currentHealth = Mathf.Clamp(currentHealth, 0, maxHealth);
+        playerHealthSlider.value = currentHealth;
+
+        if (currentHealth <= 0)
+        {
+            Die();
+        }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Enemy"))
+        {
+            Damage(10);
+        }
+    }
+
+    private void Die()
+    {
+        Debug.Log("The player died");
+
+    }
+
 }
 
 
