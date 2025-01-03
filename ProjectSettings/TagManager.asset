@@ -10,6 +10,7 @@ TagManager:
   - Pause Panel
   - Assets Panel
   - Members Panel
+  - Enemy
   layers:
   - Default
   - TransparentFX
