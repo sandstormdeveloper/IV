@@ -11,6 +11,9 @@ public class EnemyBehaviour : MonoBehaviour
     public float speed = 3.0f;
     public bool movingRight = true;
     public float extraDitst = 0.1f;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,83 +24,48 @@ public class EnemyBehaviour : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector2 leftRayPos = new Vector2(boxCollider2d.bounds.min.x, boxCollider2d.bounds.center.y);
+        Vector2 centerRayPos = boxCollider2d.bounds.center;
+        Vector2 rightRayPos = new Vector2(boxCollider2d.bounds.max.x, boxCollider2d.bounds.center.y);
+
         //If on edge turn around
-        if(!CenterGrounded() && !RightGrounded() && movingRight)
+        if (!IsGrounded(centerRayPos) && !IsGrounded(rightRayPos) && movingRight)
         {
             movingRight = !movingRight;
-        }else if(!CenterGrounded() && !LeftGrounded() && !movingRight)
+        }else if(!IsGrounded(centerRayPos) && !IsGrounded(leftRayPos) && !movingRight)
         {
             movingRight = !movingRight;
         }
 
         if (movingRight)
         {
-            rigidbody2d.velocity = new Vector2(+speed, rigidbody2d.velocity.y);
+            rigidbody2d.velocity = new Vector2(+speed, rigidbody2d.velocity.y);     //Flip movement
+            this.transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));  //Flip animator
         }
         else
         {
             rigidbody2d.velocity = new Vector2(-speed, rigidbody2d.velocity.y);
+            this.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
         }
 
     }
-
-    private bool LeftGrounded()
+    private bool IsGrounded(Vector2 rayPos)
     {
-        
-        Vector2 leftRayPos = new Vector2(boxCollider2d.bounds.min.x, boxCollider2d.bounds.center.y);
-        
-        RaycastHit2D raycastHitLeft = Physics2D.Raycast(leftRayPos, Vector2.down, boxCollider2d.bounds.extents.y + extraDitst, groundLayerMask);
+        RaycastHit2D raycastHit = Physics2D.Raycast(rayPos, Vector2.down, boxCollider2d.bounds.extents.y + extraDitst, groundLayerMask);
 
-        Color leftRayColor;
-        if (raycastHitLeft.collider != null)
+        Color rayColor;
+        if (raycastHit.collider != null)
         {
-            leftRayColor = Color.green;
+            rayColor = Color.green;
         }
         else
         {
-            leftRayColor = Color.red;
+            rayColor = Color.red;
         }
-        Debug.DrawRay(leftRayPos, Vector2.down * (boxCollider2d.bounds.extents.y + extraDitst), leftRayColor);
+        Debug.DrawRay(rayPos, Vector2.down * (boxCollider2d.bounds.extents.y + extraDitst), rayColor);
 
 
-        return raycastHitLeft.collider != null;
-
+        return raycastHit.collider != null;
     }
-    private bool CenterGrounded()
-    {
-        
-        Vector2 centerRayPos = boxCollider2d.bounds.center;
 
-        RaycastHit2D raycastHitCenter = Physics2D.Raycast(centerRayPos, Vector2.down, boxCollider2d.bounds.extents.y + extraDitst, groundLayerMask);
-        
-        Color centerRayColor;
-        if (raycastHitCenter.collider != null)
-        {
-            centerRayColor = Color.green;
-        }
-        else
-        {
-            centerRayColor = Color.red;
-        }
-        Debug.DrawRay(centerRayPos, Vector2.down * (boxCollider2d.bounds.extents.y + extraDitst), centerRayColor);
-        return raycastHitCenter.collider != null;
-
-    }
-    private bool RightGrounded()
-    {
-        Vector2 rightRayPos = new Vector2(boxCollider2d.bounds.max.x, boxCollider2d.bounds.center.y);
-        RaycastHit2D raycastHitRight = Physics2D.Raycast(rightRayPos, Vector2.down, boxCollider2d.bounds.extents.y + extraDitst, groundLayerMask);
-        Color rightRayColor;
-        if (raycastHitRight.collider != null)
-        {
-            rightRayColor = Color.green;
-        }
-        else
-        {
-            rightRayColor = Color.red;
-        }
-        Debug.DrawRay(rightRayPos, Vector2.down * (boxCollider2d.bounds.extents.y + extraDitst), rightRayColor);
-        return raycastHitRight.collider != null;
-
-    }
 }
