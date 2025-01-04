@@ -25306,7 +25306,7 @@ PrefabInstance:
       objectReference: {fileID: 26417139}
     - target: {fileID: 890352902745430130, guid: d7307fb581280b744bc70a000352185c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnResumeButtonPressed
+      value: OnResume1ButtonPressed
       objectReference: {fileID: 0}
     - target: {fileID: 1791005421926968736, guid: d7307fb581280b744bc70a000352185c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -25406,7 +25406,7 @@ PrefabInstance:
       objectReference: {fileID: 26417139}
     - target: {fileID: 4598593354055403326, guid: d7307fb581280b744bc70a000352185c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnRestartButtonPressed
+      value: OnRestart1ButtonPressed
       objectReference: {fileID: 0}
     - target: {fileID: 5018261715697333762, guid: d7307fb581280b744bc70a000352185c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -25522,7 +25522,7 @@ PrefabInstance:
       objectReference: {fileID: 26417139}
     - target: {fileID: 6585904759570943916, guid: d7307fb581280b744bc70a000352185c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnQuitLevelButtonPressed
+      value: OnQuitButtonPressed
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

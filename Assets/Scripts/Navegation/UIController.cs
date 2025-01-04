@@ -106,7 +106,7 @@ namespace Navegacion
         {
             setState(new Level(this));
         }
-        public void OnQuitLevel1ButtonPressed() //Voler al menu principal desde el nivel
+        public void OnQuitLevelButtonPressed() //Voler al menu principal desde el nivel
         {
             setState(new MainMenu(this));
         }
