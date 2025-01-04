@@ -91,27 +91,39 @@ namespace Navegacion
 
         }
 
-        //Botones Menu Pausa
+        //Botones Menu Pausa Nivel 1
         public void OnPauseButtonPressed() //Pausar el juego y mostrar el menu de pausa
         {
             setState(new Pause(this));
         }
-        public void OnResumeButtonPressed() //Reanudar el nivel
+        public void OnResume1ButtonPressed() //Reanudar el nivel
         {
             pauseInstance.SetActive(false); //Se oculta el menu de pausa
             panel_background.SetActive(false); //Se oculta el panel 
             Time.timeScale = 1f;
         }
-        public void OnRestartButtonPressed() //Reiniciar el nivel
+        public void OnRestart1ButtonPressed() //Reiniciar el nivel
         {
             setState(new Level(this));
         }
-        public void OnQuitLevelButtonPressed() //Voler al menu principal desde el nivel
+        public void OnQuitLevel1ButtonPressed() //Voler al menu principal desde el nivel
         {
             setState(new MainMenu(this));
         }
 
-        //Botones Menu Muerte jugador
+        //Botones Menu Pausa Nivel 2
+        public void OnResume2ButtonPressed() //Reanudar el nivel
+        {
+            pauseInstance.SetActive(false); //Se oculta el menu de pausa
+            panel_background.SetActive(false); //Se oculta el panel 
+            Time.timeScale = 1f;
+        }
+        public void OnRestart2ButtonPressed() //Reiniciar el nivel
+        {
+            setState(new Level2(this));
+        }
+
+        //Botones Menu Muerte jugador nivel 1
         public void OnDieRestartButtonPressed() //Reiniciar el nivel
         {
             setState(new Level(this));
@@ -119,6 +131,12 @@ namespace Navegacion
         public void OnDieQuitLevelButtonPressed() //Voler al menu principal desde el nivel
         {
             setState(new MainMenu(this));
+        }
+
+        //Boton Menu Muerte jugador nivel 2
+        public void OnDie2RestartButtonPressed() //Reiniciar el nivel
+        {
+            setState(new Level2(this));
         }
 
         //Botones Menu Opciones       

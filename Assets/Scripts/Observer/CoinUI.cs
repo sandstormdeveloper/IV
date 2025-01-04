@@ -7,8 +7,8 @@ public class CoinUI : MonoBehaviour, IGoldObserver
 {
     [SerializeField] private TextMeshProUGUI coinText; //Serialize para q las variables aparezcan en el editor aunq sean privadas
 
-    public void OnCoinCollected(int totalCoins)
+    public void OnCoinCollected(int coins)
     {
-        coinText.text = "" + totalCoins; // Actualiza la interfaz con el nº de monedas
+        coinText.text = "" + coins + " / 12"; // Actualiza la interfaz con el nº de monedas
     }
 }
