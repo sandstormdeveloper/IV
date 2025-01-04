@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
             // Clonar el prototipo del enemigo
             GameObject newEnemy = Instantiate(enemyPrototype, spawnPosition, Quaternion.identity);
 
-            // Personalizar el enemigo (opcional)
+            // Personalizar el enemigo 
             newEnemy.name = "Enemy_" + i;
         }
     }
