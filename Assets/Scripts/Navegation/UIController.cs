@@ -111,6 +111,12 @@ namespace Navegacion
             setState(new MainMenu(this));
         }
 
+        //Boton menu Siguiente nivel
+        public void OnStartLevel2ButtonPressed() //Empezar el nivel 2
+        {
+            setState(new Level2(this));
+        }
+
         //Botones Menu Pausa Nivel 2
         public void OnResume2ButtonPressed() //Reanudar el nivel
         {

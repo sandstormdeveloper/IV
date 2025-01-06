@@ -150,7 +150,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy"))
         {
-            Damage(10);
+            Damage(5);
         }
     }
 

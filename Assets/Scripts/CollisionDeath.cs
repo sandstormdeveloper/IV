@@ -7,7 +7,7 @@ public class CollisionDeath : MonoBehaviour
     private Vector2 initPos;
 
     public PlayerController playerHealth;
-    public int fallDamage = 20;
+    public int fallDamage = 10;
 
     // Start is called before the first frame update
     void Start()
