@@ -5,8 +5,8 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrototype; // El prefab del enemigo
-    public int numberOfEnemies = 5;   // Cantidad de enemigos a generar
-    public float spawnRadius = 10f;   // Radio en el que se generarán los enemigos
+    public int numberOfEnemies;   // Cantidad de enemigos a generar
+    public float spawnRadius;   // Radio en el que se generarán los enemigos
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class EnemySpawner : MonoBehaviour
             // Clonar el prototipo del enemigo
             GameObject newEnemy = Instantiate(enemyPrototype, spawnPosition, Quaternion.identity);
 
-            // Personalizar el enemigo 
+            // Personalizar el nombre del enemigo 
             newEnemy.name = "Enemy_" + i;
         }
     }
