@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
 
 public class EnemyBehaviour : MonoBehaviour
 {
@@ -30,6 +31,7 @@ public class EnemyBehaviour : MonoBehaviour
     Vector2 right = Vector2.right;
 
     private ICommand currentCommand;
+    private Flag flag;
 
     GameObject player;
     SpriteRenderer sp;
@@ -181,6 +183,7 @@ public class EnemyBehaviour : MonoBehaviour
             if (currentHealth <= 0)
             {
                 Die();
+                GameObject.FindGameObjectWithTag("Flag").GetComponent<Flag>().EliminatedEnemy();
             }
         }
     }

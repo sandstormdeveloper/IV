@@ -97,132 +97,6 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Checkpoint_Flag_Out2_0
-      rect:
-        serializedVersion: 2
-        x: 19
-        y: 0
-        width: 10
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c02950579acc51f4dbdb91f4a3210f19
-      internalID: -1256563162
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Checkpoint_Flag_Out2_1
-      rect:
-        serializedVersion: 2
-        x: 67
-        y: 0
-        width: 10
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1cb53828bd217114ba67711dacb6dfcc
-      internalID: 35331067
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Checkpoint_Flag_Out2_2
-      rect:
-        serializedVersion: 2
-        x: 115
-        y: 0
-        width: 11
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 56d4db3d1cb65e343b27571a3b5ed945
-      internalID: -425255676
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Checkpoint_Flag_Out2_3
-      rect:
-        serializedVersion: 2
-        x: 163
-        y: 0
-        width: 14
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: df88bcf7e94491c4894da98429e0555f
-      internalID: 1094889013
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Checkpoint_Flag_Out2_4
-      rect:
-        serializedVersion: 2
-        x: 211
-        y: 0
-        width: 19
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0ddf8dc03a086d54f97ddd725102d26d
-      internalID: -527968259
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Checkpoint_Flag_Out2_5
-      rect:
-        serializedVersion: 2
-        x: 259
-        y: 0
-        width: 23
-        height: 46
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5d04e8afee2bb7d438679e3f040165f0
-      internalID: 1495408304
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
       name: Checkpoint_Flag_Out2_6
       rect:
         serializedVersion: 2
@@ -237,8 +111,134 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 88152ed0e3883004eb8eb8e79be1656f
+      spriteID: 444b3c64729cb6f43804931edfe7d993
       internalID: 1864512601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkpoint_Flag_Out2_0
+      rect:
+        serializedVersion: 2
+        x: 259
+        y: 0
+        width: 27
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b08bd3c61010cb9499575044c9f2f0c1
+      internalID: -1256563162
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkpoint_Flag_Out2_1
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 0
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6a82e1ce42454454d99ad83f1b2ea82d
+      internalID: 35331067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkpoint_Flag_Out2_2
+      rect:
+        serializedVersion: 2
+        x: 163
+        y: 0
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0836bdb5f80dca488f82f396fb68037
+      internalID: -425255676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkpoint_Flag_Out2_3
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 0
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 267c2415b3239944fb854207cf9e103c
+      internalID: 1094889013
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkpoint_Flag_Out2_4
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 0
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 295a6ae0a13acec48afaec250281356b
+      internalID: -527968259
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Checkpoint_Flag_Out2_5
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 0
+        width: 30
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80f1848c1d787514e97dbf137de17d75
+      internalID: 1495408304
       vertices: []
       indices: 
       edges: []

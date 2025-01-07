@@ -12,6 +12,7 @@ TagManager:
   - Members Panel
   - Enemy
   - Limit
+  - Flag
   layers:
   - Default
   - TransparentFX
