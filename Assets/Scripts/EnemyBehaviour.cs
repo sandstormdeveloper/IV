@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -18,12 +19,20 @@ public class EnemyBehaviour : MonoBehaviour
 
     private bool isAttacking = false;
     private float attackCooldown = 1;
-    private float cooldownTimer = Mathf.Infinity;
+    private float attackTimer = 0;
+    private bool hit = false;
 
-    //Ray directions
+    private int currentHealth = 3;
+    private bool dead = false;
+
     Vector2 down = Vector2.down;
     Vector2 left = Vector2.left;
     Vector2 right = Vector2.right;
+
+    private ICommand currentCommand;
+
+    GameObject player;
+    SpriteRenderer sp;
 
     // Start is called before the first frame update
     void Start()
@@ -31,100 +40,160 @@ public class EnemyBehaviour : MonoBehaviour
         rb = transform.GetComponent<Rigidbody2D>();
         coll = transform.GetComponent<BoxCollider2D>();
         anim = transform.GetComponent<Animator>();
+
+        player = GameObject.FindGameObjectWithTag("Player");
+        sp = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        //player detection rays
-        Vector2 leftRayPos = new Vector2(coll.bounds.min.x, coll.bounds.center.y);
-        Vector2 rightRayPos = new Vector2(coll.bounds.max.x, coll.bounds.center.y);
-
-        cooldownTimer += Time.deltaTime;
-
-        if (!isAttacking)
+        if (!dead)
         {
-            Movement();
-        }
+            Vector2 leftRayPos = new Vector2(coll.bounds.min.x, coll.bounds.center.y);
+            Vector2 rightRayPos = new Vector2(coll.bounds.max.x, coll.bounds.center.y);
 
-        if(cooldownTimer >= attackCooldown)
-        { 
-            isAttacking = false;
-            if ((RayDetection(rightRayPos, right, playerLayerMask) && movingRight) || (RayDetection(leftRayPos, left, playerLayerMask) && !movingRight)) 
+            if (attackTimer > 0)
             {
-                Attack();
+                attackTimer -= Time.deltaTime;
+
+                if (attackTimer <= 0.4f && !hit)
+                {
+                    if (movingRight)
+                    {
+                        if (player.transform.position.x > transform.position.x && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f)
+                        {
+                            playerHealth.Damage(8);
+                        } 
+                    } 
+                    else
+                    {
+                        if (player.transform.position.x < transform.position.x && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f)
+                        {
+                            playerHealth.Damage(8);
+                        }
+                    }
+ 
+                    hit = true;
+                }
             }
+
+            if (!isAttacking)
+            {
+                Movement();
+            }
+
+            if (attackTimer <= 0)
+            {
+                if (movingRight)
+                {
+                    if (player.transform.position.x > transform.position.x &&  Mathf.Abs(transform.position.x - player.transform.position.x) < 2f)
+                    {
+                        Attack();
+                        isAttacking = true;
+                    }
+                    else
+                    {
+                        isAttacking = false;
+                    }
+                }
+                else
+                {
+                    if (player.transform.position.x < transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 2f)
+                    {
+                        Attack();
+                        isAttacking = true;
+                    }
+                    else
+                    {
+                        isAttacking = false;
+                    }
+                }
+            }
+        } 
+        else
+        {
+            rb.gravityScale = 0f;
+            coll.enabled = false;
         }
     }
     
     private void Attack()
     {
-        anim.SetTrigger("Attack");
-        cooldownTimer = 0;
-        isAttacking = true;
+        currentCommand = new AttackCommand(anim, attackCooldown, cooldown => attackTimer = cooldown);
+        currentCommand.Execute();
         rb.velocity = new Vector2(0, rb.velocity.y);
-        playerHealth.Damage(8);
+        hit = false;
     }
     private void Movement()
     {
-
-        //Ray positions
         Vector2 leftRayPos = new Vector2(coll.bounds.min.x, coll.bounds.center.y);
         Vector2 rightRayPos = new Vector2(coll.bounds.max.x, coll.bounds.center.y);
         Vector2 centerRayPos = coll.bounds.center;
 
-
-        //If on edge or wall turn around
         if (!RayDetection(centerRayPos, down, groundLayerMask))
-        {           //center
+        {
             if ((!RayDetection(rightRayPos, down, groundLayerMask) && movingRight) || (!RayDetection(leftRayPos, down, groundLayerMask) && !movingRight))
-            {       //right edge                                                            //left edge  
+            {
                 movingRight = !movingRight;
             }
         }
         if ((RayDetection(rightRayPos, right, groundLayerMask) && movingRight) || (RayDetection(leftRayPos, left, groundLayerMask) && !movingRight))
-        {          //right wall                                                             //left wall
+        {
             movingRight = !movingRight;
         }
 
-
-        //move and change sprite
-        if (movingRight)
+        if(!isAttacking)
         {
-            rb.velocity = new Vector2(+speed, rb.velocity.y);                       //move right
-            this.transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));  //flip animator
+            if (movingRight)
+            {
+                currentCommand = new MoveCommand(rb, speed, new Vector2(1, 0));
+                currentCommand.Execute();
+                this.transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));
+            }
+            else
+            {
+                currentCommand = new MoveCommand(rb, speed, new Vector2(-1, 0));
+                currentCommand.Execute();
+                this.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+            }
         }
         else
         {
-            rb.velocity = new Vector2(-speed, rb.velocity.y);                       //move left
-            this.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
+            rb.velocity = new Vector2(0, rb.velocity.y);
         }
-    
     }
 
     private bool RayDetection(Vector2 rayPos, Vector2 rayDir, LayerMask layer)
     {
-        //Detection ray
         RaycastHit2D raycastHit = Physics2D.Raycast(rayPos, rayDir, coll.bounds.extents.y + extraDitst, layer);
-        
-        /*    //Paint ray
-        //Ray color
-        Color rayColor;
-        if (raycastHit.collider != null)
-        {
-            rayColor = Color.green;
-        }
-        else
-        {
-            rayColor = Color.red;
-        }
-        //Draw ray
-        Debug.DrawRay(rayPos, rayDir * (coll.bounds.extents.y + extraDitst), rayColor);
-        */
-
-        //return
         return raycastHit.collider != null;
     }
 
-    
+    public void Damage(int damage)
+    {
+        if(!dead)
+        {
+            currentHealth -= damage;
+            sp.color = Color.red;
+            Invoke("ChangeColor", 0.05f);
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
+    }
+
+    private void ChangeColor()
+    {
+        sp.color = Color.white;
+    }
+
+    private void Die()
+    {
+        dead = true;
+        rb.velocity = new Vector2(0, rb.velocity.y);
+        anim.SetBool("isDead", true);
+    }
 }
