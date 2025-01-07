@@ -61,14 +61,14 @@ public class EnemyBehaviour : MonoBehaviour
                 {
                     if (movingRight)
                     {
-                        if (player.transform.position.x > transform.position.x && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f)
+                        if (player.transform.position.x > transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 3f && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f)
                         {
                             playerHealth.Damage(8);
                         } 
                     } 
                     else
                     {
-                        if (player.transform.position.x < transform.position.x && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f)
+                        if (player.transform.position.x < transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 3f && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f)
                         {
                             playerHealth.Damage(8);
                         }
