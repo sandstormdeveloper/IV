@@ -13,7 +13,9 @@ public class EnemyBehaviour : MonoBehaviour
     public float speed = 3.0f;
     public bool movingRight = true;
     public float extraDitst = 0.1f;
-    
+
+    public PlayerController playerHealth;
+
     private bool isAttacking = false;
     private float attackCooldown = 1;
     private float cooldownTimer = Mathf.Infinity;
@@ -61,6 +63,7 @@ public class EnemyBehaviour : MonoBehaviour
         cooldownTimer = 0;
         isAttacking = true;
         rb.velocity = new Vector2(0, rb.velocity.y);
+        playerHealth.Damage(8);
     }
     private void Movement()
     {

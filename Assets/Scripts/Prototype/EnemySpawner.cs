@@ -26,6 +26,7 @@ public class EnemySpawner : MonoBehaviour
 
             // Personalizar el nombre del enemigo 
             newEnemy.name = "Enemy_" + i;
+            
         }
     }
 }
