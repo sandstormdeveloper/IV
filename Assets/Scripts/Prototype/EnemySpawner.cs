@@ -17,14 +17,14 @@ public class EnemySpawner : MonoBehaviour
     {
         for (int i = 0; i < numberOfEnemies; i++)
         {
-            // Generar una posición aleatoria dentro del radio
+            // se genera una posición aleatoria dentro del radio
             Vector3 spawnPosition = transform.position + Random.insideUnitSphere * spawnRadius;
-            spawnPosition.y = 0; // Mantener en el plano horizontal
+            spawnPosition.y = transform.position.y; // se mantiene la pos y del spawner
 
-            // Clonar el prototipo del enemigo
+            // Clona el enemigo
             GameObject newEnemy = Instantiate(enemyPrototype, spawnPosition, Quaternion.identity);
 
-            // Personalizar el nombre del enemigo 
+            // Nombra al enemigo
             newEnemy.name = "Enemy_" + i;
             
         }
