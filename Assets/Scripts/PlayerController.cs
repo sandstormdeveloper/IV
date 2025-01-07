@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
     private BoxCollider2D col;
+    private SpriteRenderer sp;
 
     private float attackTimer = 0;
     private bool isAttacking = false;
@@ -30,11 +31,14 @@ public class PlayerController : MonoBehaviour
     private ICommand currentCommand;
     public UIController uiController;
 
+    public GameObject attackArea;
+
     void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         col = GetComponent<BoxCollider2D>();
+        sp = GetComponent<SpriteRenderer>();
     }
 
     void Start()
@@ -109,11 +113,16 @@ public class PlayerController : MonoBehaviour
         {
             attackTimer -= Time.deltaTime;
 
-            if (attackTimer <= 0.5f)
+            if (attackTimer <= 0.7f && attackTimer > 0.6f)
             {
+                attackArea.SetActive(true);
                 isAttacking = false;
             }
-        }
+            else if (attackTimer <= 0.6f)
+            {
+                attackArea.SetActive(false);
+            }
+        } 
     }
 
     private bool IsGrounded()
@@ -134,6 +143,8 @@ public class PlayerController : MonoBehaviour
     public void Damage(int damage)
     {
         currentHealth -= damage;
+        sp.color = Color.red;
+        Invoke("ChangeColor", 0.05f);
         
         if (playerHealthSlider != null)
         {
@@ -146,12 +157,9 @@ public class PlayerController : MonoBehaviour
         }   
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void ChangeColor()
     {
-        if (collision.gameObject.CompareTag("Enemy"))
-        {
-            Damage(5);
-        }
+        sp.color = Color.white;
     }
 
     private void Die()
@@ -163,7 +171,6 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("The player died");
     }
-
 }
 
 
