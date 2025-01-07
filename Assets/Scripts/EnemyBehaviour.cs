@@ -4,69 +4,107 @@ using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
 {
-    private Rigidbody2D rigidbody2d;
-    private BoxCollider2D boxCollider2d;
+    private Rigidbody2D rb;
+    private BoxCollider2D coll;
+    private Animator anim;
     [SerializeField] private LayerMask groundLayerMask;
+    [SerializeField] private LayerMask playerLayerMask;
 
     public float speed = 3.0f;
     public bool movingRight = true;
     public float extraDitst = 0.1f;
-
     
+    private bool isAttacking = false;
+    private float attackCooldown = 1;
+    private float cooldownTimer = Mathf.Infinity;
+
+    //Ray directions
+    Vector2 down = Vector2.down;
+    Vector2 left = Vector2.left;
+    Vector2 right = Vector2.right;
 
     // Start is called before the first frame update
     void Start()
     {
-        rigidbody2d = transform.GetComponent<Rigidbody2D>();
-        boxCollider2d = transform.GetComponent<BoxCollider2D>();
+        rb = transform.GetComponent<Rigidbody2D>();
+        coll = transform.GetComponent<BoxCollider2D>();
+        anim = transform.GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Movement();
+        //player detection rays
+        Vector2 leftRayPos = new Vector2(coll.bounds.min.x, coll.bounds.center.y);
+        Vector2 rightRayPos = new Vector2(coll.bounds.max.x, coll.bounds.center.y);
 
+        cooldownTimer += Time.deltaTime;
+
+        if (!isAttacking)
+        {
+            Movement();
+        }
+
+        if(cooldownTimer >= attackCooldown)
+        { 
+            isAttacking = false;
+            if ((RayDetection(rightRayPos, right, playerLayerMask) && movingRight) || (RayDetection(leftRayPos, left, playerLayerMask) && !movingRight)) 
+            {
+                Attack();
+            }
+        }
     }
-
+    
+    private void Attack()
+    {
+        anim.SetTrigger("Attack");
+        cooldownTimer = 0;
+        isAttacking = true;
+        rb.velocity = new Vector2(0, rb.velocity.y);
+    }
     private void Movement()
     {
+
         //Ray positions
-        Vector2 leftRayPos = new Vector2(boxCollider2d.bounds.min.x, boxCollider2d.bounds.center.y);
-        Vector2 centerRayPos = boxCollider2d.bounds.center;
-        Vector2 rightRayPos = new Vector2(boxCollider2d.bounds.max.x, boxCollider2d.bounds.center.y);
-        Vector2 down = Vector2.down;
-        Vector2 left = Vector2.left;
-        Vector2 right = Vector2.right;
+        Vector2 leftRayPos = new Vector2(coll.bounds.min.x, coll.bounds.center.y);
+        Vector2 rightRayPos = new Vector2(coll.bounds.max.x, coll.bounds.center.y);
+        Vector2 centerRayPos = coll.bounds.center;
 
 
         //If on edge or wall turn around
-        if ((!IsGrounded(rightRayPos, down) && movingRight) || (!IsGrounded(leftRayPos, down) && !movingRight))
-        {           //right edge                                            //left edge 
-            if (!IsGrounded(centerRayPos, down))
-            {       //center  
+        if (!RayDetection(centerRayPos, down, groundLayerMask))
+        {           //center
+            if ((!RayDetection(rightRayPos, down, groundLayerMask) && movingRight) || (!RayDetection(leftRayPos, down, groundLayerMask) && !movingRight))
+            {       //right edge                                                            //left edge  
                 movingRight = !movingRight;
             }
         }
-        if ((IsGrounded(rightRayPos, right) && movingRight) || (IsGrounded(leftRayPos, left) && !movingRight))
-        {          //right wall                                             //left wall
+        if ((RayDetection(rightRayPos, right, groundLayerMask) && movingRight) || (RayDetection(leftRayPos, left, groundLayerMask) && !movingRight))
+        {          //right wall                                                             //left wall
             movingRight = !movingRight;
         }
 
+
+        //move and change sprite
         if (movingRight)
         {
-            rigidbody2d.velocity = new Vector2(+speed, rigidbody2d.velocity.y);     //Flip movement
-            this.transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));  //Flip animator
+            rb.velocity = new Vector2(+speed, rb.velocity.y);                       //move right
+            this.transform.rotation = Quaternion.Euler(new Vector3(0f, 180f, 0f));  //flip animator
         }
         else
         {
-            rigidbody2d.velocity = new Vector2(-speed, rigidbody2d.velocity.y);
+            rb.velocity = new Vector2(-speed, rb.velocity.y);                       //move left
             this.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
         }
+    
     }
-    private bool IsGrounded(Vector2 rayPos, Vector2 rayDir)
+
+    private bool RayDetection(Vector2 rayPos, Vector2 rayDir, LayerMask layer)
     {
         //Detection ray
-        RaycastHit2D raycastHit = Physics2D.Raycast(rayPos, rayDir, boxCollider2d.bounds.extents.y + extraDitst, groundLayerMask);
+        RaycastHit2D raycastHit = Physics2D.Raycast(rayPos, rayDir, coll.bounds.extents.y + extraDitst, layer);
+        
+        /*    //Paint ray
         //Ray color
         Color rayColor;
         if (raycastHit.collider != null)
@@ -78,10 +116,12 @@ public class EnemyBehaviour : MonoBehaviour
             rayColor = Color.red;
         }
         //Draw ray
-        Debug.DrawRay(rayPos, rayDir * (boxCollider2d.bounds.extents.y + extraDitst), rayColor);
+        Debug.DrawRay(rayPos, rayDir * (coll.bounds.extents.y + extraDitst), rayColor);
+        */
 
         //return
         return raycastHit.collider != null;
     }
+
     
 }

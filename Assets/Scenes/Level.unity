@@ -21626,7 +21626,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3827260054227377618, guid: d7307fb581280b744bc70a000352185c, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -29.636719
+      value: -29.636688
       objectReference: {fileID: 0}
     - target: {fileID: 4277102280191242782, guid: d7307fb581280b744bc70a000352185c, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -22112,7 +22112,7 @@ GameObject:
   - component: {fileID: 2078918715}
   - component: {fileID: 2078918716}
   - component: {fileID: 2078918717}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -22536,7 +22536,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3299285940991165213, guid: ae5b50aa43b7e1e428e8694f2e89a6c2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -29.636719
+      value: -29.636688
       objectReference: {fileID: 0}
     - target: {fileID: 3299285940991165213, guid: ae5b50aa43b7e1e428e8694f2e89a6c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -22683,11 +22683,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2986308850257003423, guid: f1b13fd45d4f68b4b86fbaa7770b92c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 32.26
+      value: 11.72
       objectReference: {fileID: 0}
     - target: {fileID: 2986308850257003423, guid: f1b13fd45d4f68b4b86fbaa7770b92c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -5.17
+      value: -1.18
       objectReference: {fileID: 0}
     - target: {fileID: 2986308850257003423, guid: f1b13fd45d4f68b4b86fbaa7770b92c1, type: 3}
       propertyPath: m_LocalPosition.z
@@ -22728,6 +22728,10 @@ PrefabInstance:
     - target: {fileID: 3293164574962459528, guid: f1b13fd45d4f68b4b86fbaa7770b92c1, type: 3}
       propertyPath: m_Layer
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8677887478200445907, guid: f1b13fd45d4f68b4b86fbaa7770b92c1, type: 3}
+      propertyPath: playerLayerMask.m_Bits
+      value: 256
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
