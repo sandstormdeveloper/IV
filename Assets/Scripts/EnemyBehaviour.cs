@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class EnemyBehaviour : MonoBehaviour
@@ -60,14 +61,14 @@ public class EnemyBehaviour : MonoBehaviour
                 {
                     if (movingRight)
                     {
-                        if (transform.position.x - player.transform.position.x < 3f && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f)
+                        if (player.transform.position.x > transform.position.x && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f)
                         {
                             playerHealth.Damage(8);
                         } 
                     } 
                     else
                     {
-                        if (player.transform.position.x - transform.position.x < 3f && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f)
+                        if (player.transform.position.x < transform.position.x && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f)
                         {
                             playerHealth.Damage(8);
                         }
@@ -84,14 +85,29 @@ public class EnemyBehaviour : MonoBehaviour
 
             if (attackTimer <= 0)
             {
-                if (Mathf.Abs(transform.position.x - player.transform.position.x) < 2f)
+                if (movingRight)
                 {
-                    Attack();
-                    isAttacking = true;
-                } 
+                    if (player.transform.position.x > transform.position.x &&  Mathf.Abs(transform.position.x - player.transform.position.x) < 2f)
+                    {
+                        Attack();
+                        isAttacking = true;
+                    }
+                    else
+                    {
+                        isAttacking = false;
+                    }
+                }
                 else
                 {
-                    isAttacking = false;
+                    if (player.transform.position.x < transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 2f)
+                    {
+                        Attack();
+                        isAttacking = true;
+                    }
+                    else
+                    {
+                        isAttacking = false;
+                    }
                 }
             }
         } 
