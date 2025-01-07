@@ -159,10 +159,13 @@ public class EnemyBehaviour : MonoBehaviour
                 currentCommand.Execute();
                 this.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
             }
+
+            anim.SetBool("isMoving", true);
         }
         else
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
+            anim.SetBool("isMoving", false);
         }
     }
 
