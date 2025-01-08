@@ -13,6 +13,7 @@ TagManager:
   - Enemy
   - Limit
   - Flag
+  - Boss
   layers:
   - Default
   - TransparentFX

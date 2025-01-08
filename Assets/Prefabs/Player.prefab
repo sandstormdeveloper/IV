@@ -155,7 +155,7 @@ MonoBehaviour:
   jumpSpeed: 18
   attackCooldown: 1
   playerHealthSlider: {fileID: 0}
-  maxHealth: 50
+  maxHealth: 80
   uiController: {fileID: 0}
   attackArea: {fileID: 8543715483832169249}
 --- !u!114 &5637515461501275448

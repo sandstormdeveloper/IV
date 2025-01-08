@@ -10,5 +10,10 @@ public class PlayerAttack : MonoBehaviour
         {
             collision.GetComponent<EnemyBehaviour>().Damage(1);
         }
+
+        if (collision.tag == "Boss")
+        {
+            collision.GetComponent<Boss>().Damage(1);
+        }
     }
 }

@@ -19,7 +19,7 @@ public class EnemyBehaviour : MonoBehaviour
     public PlayerController playerHealth;
 
     private bool isAttacking = false;
-    private float attackCooldown = 1;
+    private float attackCooldown = 2;
     private float attackTimer = 0;
     private bool hit = false;
 
@@ -59,7 +59,7 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 attackTimer -= Time.deltaTime;
 
-                if (attackTimer <= 0.4f && !hit)
+                if (attackTimer <= 1.4f && !hit)
                 {
                     if (movingRight)
                     {
@@ -80,38 +80,47 @@ public class EnemyBehaviour : MonoBehaviour
                 }
             }
 
-            if (!isAttacking)
+            if (movingRight)
             {
-                Movement();
-            }
-
-            if (attackTimer <= 0)
-            {
-                if (movingRight)
+                if (player.transform.position.x > transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 2f)
                 {
-                    if (player.transform.position.x > transform.position.x &&  Mathf.Abs(transform.position.x - player.transform.position.x) < 2f)
+                    isAttacking = true;
+
+                    if (attackTimer <= 0)
                     {
                         Attack();
-                        isAttacking = true;
-                    }
-                    else
-                    {
-                        isAttacking = false;
                     }
                 }
                 else
                 {
-                    if (player.transform.position.x < transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 2f)
-                    {
-                        Attack();
-                        isAttacking = true;
-                    }
-                    else
+                    if (hit)
                     {
                         isAttacking = false;
                     }
                 }
             }
+            else
+            {
+                if (player.transform.position.x < transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 2f)
+                {
+                    isAttacking = true;
+
+                    if (attackTimer <= 0)
+                    {
+                        Attack();
+                    }
+                } 
+                else 
+                {
+                    if (hit)
+                    {
+                        isAttacking = false;
+                    }
+                }
+            }
+
+            Movement();
+            UpdateSprite();
         } 
         else
         {
@@ -159,14 +168,16 @@ public class EnemyBehaviour : MonoBehaviour
                 currentCommand.Execute();
                 this.transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, 0f));
             }
-
-            anim.SetBool("isMoving", true);
         }
         else
         {
             rb.velocity = new Vector2(0, rb.velocity.y);
-            anim.SetBool("isMoving", false);
         }
+    }
+    private void UpdateSprite()
+    {
+        bool playerHasHorizontalSpeed = Mathf.Abs(rb.velocity.x) > 0.1f;
+        anim.SetBool("isRunning", playerHasHorizontalSpeed);
     }
 
     private bool RayDetection(Vector2 rayPos, Vector2 rayDir, LayerMask layer)
