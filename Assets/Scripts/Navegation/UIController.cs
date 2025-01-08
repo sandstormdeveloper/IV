@@ -27,7 +27,7 @@ namespace Navegacion
 
 
         //Función para cargar las escenes
-        public void loadScene(string scene)
+        public void LoadScene(string scene)
         {
             Debug.Log("Cargando escena de " + scene);
             SceneManager.LoadScene(scene);

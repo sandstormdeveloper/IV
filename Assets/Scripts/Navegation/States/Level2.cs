@@ -16,7 +16,7 @@ namespace Navegacion.State
         public override void Enter()
         {
             Debug.Log("Entrando al Nivel 2");
-            uiController.loadScene("Level2");
+            uiController.LoadScene("Level2");
         }
 
         public override void Exit()

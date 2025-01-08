@@ -16,7 +16,7 @@ namespace Navegacion.State
         public override void Enter()
         {
             Debug.Log("Entrando al menu de Opciones");
-            uiController.loadScene("Options");
+            uiController.LoadScene("Options");
         }
 
         public override void Exit()

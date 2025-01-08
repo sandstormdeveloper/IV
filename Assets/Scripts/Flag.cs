@@ -49,7 +49,7 @@ public class Flag : MonoBehaviour
             if (collision.tag == "Player" && (numEnemigos == 0) && uiController != null)
             {
                 Debug.Log("Tocando la bandera");
-                uiController.setState(new NextLevel(uiController));
+                uiController.SetState(new NextLevel(uiController));
             }
         }
         else if (currentScene.name == "Level2")
@@ -57,7 +57,7 @@ public class Flag : MonoBehaviour
             if (collision.tag == "Player" && (numEnemigos == 0) && uiController != null)
             {
                 Debug.Log("Tocando la bandera");
-                uiController.setState(new EndGame(uiController));
+                uiController.SetState(new EndGame(uiController));
             }
         }
         
