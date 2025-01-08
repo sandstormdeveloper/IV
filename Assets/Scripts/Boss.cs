@@ -45,18 +45,18 @@ public class Boss : MonoBehaviour
             {
                 attackTimer -= Time.deltaTime;
 
-                if (attackTimer <= 1.4f && !hit)
+                if (attackTimer <= 1.6f && !hit)
                 {
                     if (flipped < 0)
                     {
-                        if (player.transform.position.x > transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 4f && Mathf.Abs(transform.position.y - player.transform.position.y) < 3f)
+                        if (player.transform.position.x > transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 3f && Mathf.Abs(transform.position.y - player.transform.position.y) < 3f)
                         {
                             player.Damage(12);
                         }
                     }
                     else
                     {
-                        if (player.transform.position.x < transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 4f && Mathf.Abs(transform.position.y - player.transform.position.y) < 3f)
+                        if (player.transform.position.x < transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 3f && Mathf.Abs(transform.position.y - player.transform.position.y) < 3f)
                         {
                             player.Damage(12);
                         }

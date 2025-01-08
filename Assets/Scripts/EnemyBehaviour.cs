@@ -57,7 +57,7 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 attackTimer -= Time.deltaTime;
 
-                if (attackTimer <= 1.7f && !hit)
+                if (attackTimer <= 1.4f && !hit)
                 {
                     if (movingRight)
                     {
