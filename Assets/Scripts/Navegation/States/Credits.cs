@@ -16,7 +16,7 @@ namespace Navegacion.State
         public override void Enter()
         {
             Debug.Log("Entrando a los Créditos");
-            uiController.loadScene("Credits");
+            uiController.LoadScene("Credits");
         }
 
         public override void Exit()

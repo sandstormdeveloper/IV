@@ -179,7 +179,7 @@ public class PlayerController : MonoBehaviour
 
         if (uiController != null)
         {
-            uiController.setState(new Die(uiController));
+            uiController.SetState(new Die(uiController));
         }
     }
 }
