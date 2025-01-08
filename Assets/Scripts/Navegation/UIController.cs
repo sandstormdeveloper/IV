@@ -17,6 +17,8 @@ namespace Navegacion
         public GameObject panel_background;
 
         public GameObject dieInstance;
+        public GameObject nextLevelInstance;
+
 
         public GameObject panel_integrantes;
         public GameObject panel_assets;

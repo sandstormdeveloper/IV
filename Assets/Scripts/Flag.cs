@@ -1,4 +1,5 @@
 using Navegacion;
+using Navegacion.State;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,20 +7,16 @@ using UnityEngine;
 public class Flag : MonoBehaviour
 {
     [SerializeField] private int numEnemigos;
-    [SerializeField] private int enemigosElim;
+    //[SerializeField] private int enemigosElim;
     
-    private UIController uiController;
+    public UIController uiController;
     private Animator animator;
     
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-    }
-
-    private void Update()
-    {
-        numEnemigos = GameObject.FindGameObjectsWithTag("Enemy").Length - 1;
+        numEnemigos = 4;
     }
 
     private void EndLevelFlag()
@@ -29,9 +26,9 @@ public class Flag : MonoBehaviour
 
     public void EliminatedEnemy()
     {
-        enemigosElim += 1;
+        numEnemigos -= 1;
 
-        if (enemigosElim == numEnemigos)
+        if (numEnemigos == 0)
         {
             EndLevelFlag();
         }
@@ -39,10 +36,13 @@ public class Flag : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Player") && enemigosElim == numEnemigos)
+        Debug.Log("No Tocando la bandera");
+
+        if (collision.tag == "Player" && (numEnemigos == 0)  && uiController != null)
         {
-            uiController.loadScene("Level2");
-        }
+            Debug.Log("Tocando la bandera");
+            uiController.setState(new NextLevel(uiController));
+        } 
     }
 
 }

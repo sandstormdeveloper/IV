@@ -5,11 +5,15 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
        [SerializeField] private CoinCollector coinCollector;
+
        [SerializeField] private CoinUI coinUI;
+    [SerializeField] private CoinUI coinUIFinal;
 
        private void Start()
         {
             // Registra los observadores
             coinCollector.AddObserver(coinUI);
-        }
+            coinCollector.AddObserver(coinUIFinal);
+
+    }
 }

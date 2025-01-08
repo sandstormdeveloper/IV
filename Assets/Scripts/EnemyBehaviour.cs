@@ -177,7 +177,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void UpdateSprite()
     {
         bool playerHasHorizontalSpeed = Mathf.Abs(rb.velocity.x) > 0.1f;
-        anim.SetBool("isRunning", playerHasHorizontalSpeed);
+        anim.SetBool("isMoving", playerHasHorizontalSpeed);
     }
 
     private bool RayDetection(Vector2 rayPos, Vector2 rayDir, LayerMask layer)

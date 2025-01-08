@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public int maxHealth = 50;
     private int currentHealth;
 
+    private float deathTime = 2.0f;
+
     private ICommand currentCommand;
     public UIController uiController;
 
@@ -164,12 +166,21 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
+        anim.SetTrigger("death");
+
+        StartCoroutine(ShowDieMenu());
+
+        Debug.Log("The player died");
+    }
+
+    private IEnumerator ShowDieMenu()
+    {
+        yield return new WaitForSeconds(deathTime); 
+
         if (uiController != null)
         {
             uiController.setState(new Die(uiController));
         }
-
-        Debug.Log("The player died");
     }
 }
 
