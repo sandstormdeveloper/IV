@@ -8,7 +8,7 @@ using IState = Navegacion.IState;
 
 namespace Navegacion
 {
-    public class UIController : MonoBehaviour
+    public class UIController : MonoBehaviour, IUI
     {
         //VARIABLES 
         private IState currentState;
@@ -34,13 +34,13 @@ namespace Navegacion
         }
 
         //Función para devolver el estado actual
-        public IState getState()
+        public IState GetState()
         {
             return currentState;
         }
 
         //Función para actualizar el estado
-        public void setState(IState state)
+        public void SetState(IState state)
         {
             if (currentState != null)
             {
@@ -56,16 +56,16 @@ namespace Navegacion
         //Botones Menu Principal
         public void OnStartButtonPressed() //Empezar el juego
         {
-            setState(new Level(this));
+            SetState(new Level(this));
         }
 
         public void OnCreditsButtonPressed() //Ir a la escena de creditos
         {
-            setState(new Credits(this));
+            SetState(new Credits(this));
         }
         public void OnOptionsButtonPressed() //Ir a la escena de opciones
         {
-            setState(new Options(this));
+            SetState(new Options(this));
         }
 
         public void OnQuitButtonPressed() //Cerrar el juego
@@ -77,7 +77,7 @@ namespace Navegacion
         //Botones Menu Créditos
         public void OnExitCreditsButtonPressed() //Volver al menu principal desde el menu de creditos
         {
-            setState(new MainMenu(this));
+            SetState(new MainMenu(this));
         }
 
         public void ShowPanelIntegrantes() //Mostrar panel de integrantes y tareas
@@ -96,7 +96,7 @@ namespace Navegacion
         //Botones Menu Pausa Nivel 1
         public void OnPauseButtonPressed() //Pausar el juego y mostrar el menu de pausa
         {
-            setState(new Pause(this));
+            SetState(new Pause(this));
         }
         public void OnResume1ButtonPressed() //Reanudar el nivel
         {
@@ -106,17 +106,17 @@ namespace Navegacion
         }
         public void OnRestart1ButtonPressed() //Reiniciar el nivel
         {
-            setState(new Level(this));
+            SetState(new Level(this));
         }
         public void OnQuitLevelButtonPressed() //Voler al menu principal desde el nivel
         {
-            setState(new MainMenu(this));
+            SetState(new MainMenu(this));
         }
 
         //Boton menu Siguiente nivel
         public void OnStartLevel2ButtonPressed() //Empezar el nivel 2
         {
-            setState(new Level2(this));
+            SetState(new Level2(this));
         }
 
         //Botones Menu Pausa Nivel 2
@@ -128,29 +128,29 @@ namespace Navegacion
         }
         public void OnRestart2ButtonPressed() //Reiniciar el nivel
         {
-            setState(new Level2(this));
+            SetState(new Level2(this));
         }
 
         //Botones Menu Muerte jugador nivel 1
         public void OnDieRestartButtonPressed() //Reiniciar el nivel
         {
-            setState(new Level(this));
+            SetState(new Level(this));
         }
         public void OnDieQuitLevelButtonPressed() //Voler al menu principal desde el nivel
         {
-            setState(new MainMenu(this));
+            SetState(new MainMenu(this));
         }
 
         //Boton Menu Muerte jugador nivel 2
         public void OnDie2RestartButtonPressed() //Reiniciar el nivel
         {
-            setState(new Level2(this));
+            SetState(new Level2(this));
         }
 
         //Botones Menu Opciones       
         public void OnExitOptionsButtonPressed() //Volver al menu principal desde el menu de opciones
         {
-            setState(new MainMenu(this));
+            SetState(new MainMenu(this));
 
         }
 
