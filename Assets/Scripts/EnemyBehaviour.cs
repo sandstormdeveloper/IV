@@ -210,6 +210,7 @@ public class EnemyBehaviour : MonoBehaviour
     private void Die()
     {
         dead = true;
+        gameObject.tag = "Death";
         rb.velocity = new Vector2(0, rb.velocity.y);
         anim.SetBool("isDead", true);
     }

@@ -3,6 +3,7 @@ using Navegacion.State;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Flag : MonoBehaviour
 {
@@ -11,12 +12,17 @@ public class Flag : MonoBehaviour
     
     public UIController uiController;
     private Animator animator;
+
     
     // Start is called before the first frame update
     void Start()
     {
         animator = GetComponent<Animator>();
-        numEnemigos = 4;
+    }
+
+    void Update()
+    {
+        numEnemigos = GameObject.FindGameObjectsWithTag("Enemy").Length;
     }
 
     private void EndLevelFlag()
@@ -36,13 +42,25 @@ public class Flag : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("No Tocando la bandera");
+        Scene currentScene = SceneManager.GetActiveScene();
 
-        if (collision.tag == "Player" && (numEnemigos == 0)  && uiController != null)
+        if (currentScene.name == "Level")
         {
-            Debug.Log("Tocando la bandera");
-            uiController.setState(new NextLevel(uiController));
-        } 
+            if (collision.tag == "Player" && (numEnemigos == 0) && uiController != null)
+            {
+                Debug.Log("Tocando la bandera");
+                uiController.setState(new NextLevel(uiController));
+            }
+        }
+        else if (currentScene.name == "Level2")
+        {
+            if (collision.tag == "Player" && (numEnemigos == 0) && uiController != null)
+            {
+                Debug.Log("Tocando la bandera");
+                uiController.setState(new EndGame(uiController));
+            }
+        }
+        
     }
 
 }

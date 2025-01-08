@@ -18,7 +18,7 @@ namespace Navegacion
 
         public GameObject dieInstance;
         public GameObject nextLevelInstance;
-
+        public GameObject endGameInstance;
 
         public GameObject panel_integrantes;
         public GameObject panel_assets;
