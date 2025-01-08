@@ -2596,9 +2596,9 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "tilesets, decoraciones mapas, patron state,  creacion de animaciones,
-    dise\xF1o e implementacion de interfaces, efectos de sonido, implementacion caida
-    al vacio y muerte del jugador e implementacion del final de los niveles mediante
-    la bandera y eliminacion de enemigos."
+    dise\xF1o e implementacion de interfaces, implementacion opcion de cambio de
+    volumen, implementacion caida al vacio y muerte del jugador e implementacion
+    del final de los niveles mediante la bandera y eliminacion de enemigos."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f3881b03b98e90a47b375cf66097edad, type: 2}
   m_sharedMaterial: {fileID: -694038905266051878, guid: f3881b03b98e90a47b375cf66097edad, type: 2}
@@ -4282,7 +4282,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "implementacion enemigos peque\xF1os"
+  m_text: implementacion movimiento enemigos nivel 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f3881b03b98e90a47b375cf66097edad, type: 2}
   m_sharedMaterial: {fileID: -694038905266051878, guid: f3881b03b98e90a47b375cf66097edad, type: 2}
@@ -4345,7 +4345,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -480.4069, w: 0}
+  m_margin: {x: 0, y: 0, z: -728.1639, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
