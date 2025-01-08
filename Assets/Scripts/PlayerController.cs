@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     public UIController uiController;
 
     public GameObject attackArea;
+    
+    private AudioSource audioSource;
+    public AudioClip deathSound;
 
     void Awake()
     {
@@ -42,6 +45,7 @@ public class PlayerController : MonoBehaviour
         anim = GetComponent<Animator>();
         col = GetComponent<BoxCollider2D>();
         sp = GetComponent<SpriteRenderer>();
+        audioSource = GetComponent<AudioSource>();
     }
 
     void Start()
@@ -178,6 +182,8 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
+        audioSource.clip = deathSound;
+        audioSource.Play();
         isAlive = false;
         anim.SetTrigger("death");
 

@@ -7,6 +7,14 @@ public class CoinCollector : MonoBehaviour
     private List<IGoldObserver> observers = new List<IGoldObserver>(); // Lista de observadores
     private int totalCoins = 0;
 
+    private AudioSource audioSource;
+    public AudioClip collectSound;
+
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     // Agregar un observador
     public void AddObserver(IGoldObserver observer)
     {
@@ -37,6 +45,8 @@ public class CoinCollector : MonoBehaviour
     // Método que se llama cuando se recoge una moneda
     public void CollectCoin()
     {
+        audioSource.clip = collectSound;
+        audioSource.Play();
         totalCoins++;
         NotifyObservers();
     }
