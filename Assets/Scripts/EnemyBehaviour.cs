@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using static Unity.IO.LowLevel.Unsafe.AsyncReadManagerMetrics;
 
-public class EnemyBehaviour : MonoBehaviour
+public class EnemyBehaviour : MonoBehaviour, IEnemy
 {
     private Rigidbody2D rb;
     private BoxCollider2D coll;
@@ -212,5 +212,10 @@ public class EnemyBehaviour : MonoBehaviour
         gameObject.tag = "Death";
         rb.velocity = new Vector2(0, rb.velocity.y);
         anim.SetBool("isDead", true);
+    }
+    public void OnSpawn()
+    {
+        // Lógica de inicialización específica al generarse
+        Debug.Log($"{gameObject.name} ha sido generado");
     }
 }
