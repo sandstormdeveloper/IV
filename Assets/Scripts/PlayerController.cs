@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour
     private int currentHealth;
 
     private float deathTime = 2.0f;
+    private bool isAlive = true;
 
     private ICommand currentCommand;
     public UIController uiController;
@@ -55,9 +56,17 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
-        UpdateTimers();
-        Run();
-        UpdateSprite();
+        if (isAlive)
+        {
+            UpdateTimers();
+            Run();
+            UpdateSprite();
+        }
+        else 
+        {
+            rb.velocity = new Vector2(0, rb.velocity.y);
+        }
+
         playerHealthSlider.value = currentHealth;
     }
 
@@ -144,19 +153,22 @@ public class PlayerController : MonoBehaviour
 
     public void Damage(int damage)
     {
-        currentHealth -= damage;
-        sp.color = Color.red;
-        Invoke("ChangeColor", 0.05f);
-        
-        if (playerHealthSlider != null)
+        if (isAlive)
         {
-            playerHealthSlider.value = currentHealth;
-        }
+            currentHealth -= damage;
+            sp.color = Color.red;
+            Invoke("ChangeColor", 0.1f);
 
-        if (currentHealth <= 0)
-        {
-            Die();
-        }   
+            if (playerHealthSlider != null)
+            {
+                playerHealthSlider.value = currentHealth;
+            }
+
+            if (currentHealth <= 0)
+            {
+                Die();
+            }
+        }
     }
 
     private void ChangeColor()
@@ -166,6 +178,7 @@ public class PlayerController : MonoBehaviour
 
     private void Die()
     {
+        isAlive = false;
         anim.SetTrigger("death");
 
         StartCoroutine(ShowDieMenu());
