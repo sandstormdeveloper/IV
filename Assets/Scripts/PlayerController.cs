@@ -146,7 +146,7 @@ public class PlayerController : MonoBehaviour
     {
         currentHealth -= damage;
         sp.color = Color.red;
-        Invoke("ChangeColor", 0.05f);
+        Invoke("ChangeColor", 0.1f);
         
         if (playerHealthSlider != null)
         {

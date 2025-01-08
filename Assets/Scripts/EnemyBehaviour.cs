@@ -16,8 +16,6 @@ public class EnemyBehaviour : MonoBehaviour
     public bool movingRight = true;
     public float extraDitst = 0.1f;
 
-    public PlayerController playerHealth;
-
     private bool isAttacking = false;
     private float attackCooldown = 2;
     private float attackTimer = 0;
@@ -33,7 +31,7 @@ public class EnemyBehaviour : MonoBehaviour
     private ICommand currentCommand;
     private Flag flag;
 
-    GameObject player;
+    PlayerController player;
     SpriteRenderer sp;
 
     // Start is called before the first frame update
@@ -43,7 +41,7 @@ public class EnemyBehaviour : MonoBehaviour
         coll = transform.GetComponent<BoxCollider2D>();
         anim = transform.GetComponent<Animator>();
 
-        player = GameObject.FindGameObjectWithTag("Player");
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerController>();
         sp = GetComponent<SpriteRenderer>();
     }
 
@@ -59,20 +57,20 @@ public class EnemyBehaviour : MonoBehaviour
             {
                 attackTimer -= Time.deltaTime;
 
-                if (attackTimer <= 1.4f && !hit)
+                if (attackTimer <= 1.7f && !hit)
                 {
                     if (movingRight)
                     {
                         if (player.transform.position.x > transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 3f && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f)
                         {
-                            playerHealth.Damage(8);
+                            player.Damage(8);
                         } 
                     } 
                     else
                     {
                         if (player.transform.position.x < transform.position.x && Mathf.Abs(transform.position.x - player.transform.position.x) < 3f && Mathf.Abs(transform.position.y - player.transform.position.y) < 2f)
                         {
-                            playerHealth.Damage(8);
+                            player.Damage(8);
                         }
                     }
  
@@ -174,6 +172,7 @@ public class EnemyBehaviour : MonoBehaviour
             rb.velocity = new Vector2(0, rb.velocity.y);
         }
     }
+
     private void UpdateSprite()
     {
         bool playerHasHorizontalSpeed = Mathf.Abs(rb.velocity.x) > 0.1f;
@@ -192,7 +191,7 @@ public class EnemyBehaviour : MonoBehaviour
         {
             currentHealth -= damage;
             sp.color = Color.red;
-            Invoke("ChangeColor", 0.05f);
+            Invoke("ChangeColor", 0.1f);
 
             if (currentHealth <= 0)
             {
